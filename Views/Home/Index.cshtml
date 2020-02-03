@@ -1,0 +1,366 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @@font-face {
+            font-family: myFirstFont;
+            src: url(../fonts/OpenSans-SemiBold.ttf);
+        }
+
+        h1, label, p {
+            font-family: myFirstFont;
+        }
+
+        .device {
+            cursor: pointer;
+        }
+
+            .device:hover {
+            }
+
+        /* GLOBAL STYLES */
+
+
+        /* DEMO-SPECIFIC STYLES */
+        .typewriter h1 {
+            color: #000;
+            font-family: monospace;
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange; /* The typwriter cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .1em; /* Adjust as needed */
+            animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+        }
+
+        /* The typing effect */
+        @@keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @@keyframes blink-caret {
+            from, to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: orange
+            }
+        }
+
+        .fade-out-large {
+            animation: fade-out-large 0.2s linear both;
+            pointer-events: none;
+        }
+
+        @@keyframes fade-out-large {
+            0% {
+                height: 60%;
+                width: 45%;
+            }
+
+
+            100% {
+                height: 0%;
+                width: 40%;
+            }
+        }
+
+        .fade-in-large {
+            animation: fade-in-large 0.2s linear both;
+            pointer-events: auto;
+        }
+
+        @@keyframes fade-in-large {
+            0% {
+                height: 0%;
+                width: 40%;
+            }
+
+
+            100% {
+                height: 60%;
+                width: 45%;
+            }
+        }
+
+        .fade-in {
+            animation: fade-in 1.5s linear both;
+            pointer-events: auto;
+        }
+
+        @@keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100;
+            }
+        }
+        .fade-in-fast {
+            animation: fade-in 0.1s linear both;
+            pointer-events: auto;
+        }
+
+        @@keyframes fade-in-fast {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 100;
+            }
+        }
+
+        .fade-out {
+            animation: fade-out 0.5s linear both;
+            pointer-events: none;
+        }
+
+        @@keyframes fade-out {
+            0% {
+                opacity: 100;
+            }
+
+
+            100% {
+                opacity: 0;
+            }
+        }
+        .fade-out-fast {
+            animation: fade-out-fast 0.1s linear both;
+            pointer-events: none;
+        }
+
+        @@keyframes fade-out-fast {
+            0% {
+                opacity: 100;
+            }
+
+
+            100% {
+                opacity: 0;
+            }
+        }
+        .scale-in {
+            animation: scale-in 0.5s linear both;
+            pointer-events: auto;
+        }
+
+        @@keyframes scale-in {
+            0% {
+                height: 0%;
+                width: 0%;
+            }
+
+
+            100% {
+                height: 25%;
+                width: 25%;
+            }
+        }
+        .scale-out {
+            animation: scale-out 0.5s linear both;
+            pointer-events: none;
+        }
+
+        @@keyframes scale-out {
+            0% {
+                height: 25%;
+                width: 25%;
+            }
+
+            100% {
+                height: 0%;
+                width: 0%;
+            }
+        }
+
+        .loading {
+            animation: loading 0.5s linear both;
+            pointer-events: none;
+        }
+
+        @@keyframes loading {
+            0% {
+                width: 0%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url(../images/windows.jpg);
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+}
+<div id="mainDiv" class="container-fluid " style="position:absolute; bottom:0; top:0;">
+
+
+    <div id="deskDiv" class="row" style=" opacity: 0; "pointer-events: none;">
+        <div class="col-12" style=" position:absolute; top: 2%;  width:100%;">
+            <img class=" float-left" style="height:35px; cursor:pointer;" src="~/images/mycomputer.svg" /><br /><br />
+            <p>Computer</p>
+        </div>
+        <div class="col-12 " style=" position:absolute; top: 12%;  width:100%;">
+            <img class="float-left" style="height:35px; cursor:pointer;" src="~/images/folder.svg" /><br /><br />
+            <p>Projects</p>
+        </div>
+        <div class="col-12 " style=" position:absolute; top: 22%;  width:100%;">
+            <img class="float-left" style="height:35px; cursor:pointer;" src="~/images/linkedin.svg" /><br /><br />
+            <p>Linkedin</p>
+        </div>
+        <div class="col-12 " style=" position:absolute; top: 32%;  width:100%;">
+            <img class="float-left" style="height:35px; cursor:pointer;" src="~/images/github.svg" /><br /><br />
+            <p>Github</p>
+        </div>
+        <div class="col-12 " style=" position:absolute; top: 42%;  width:100%;">
+            <img class="float-left" style="height:35px; cursor:pointer;" src="~/images/cv.svg" /><br /><br />
+            <p>CV</p>
+        </div>
+        <div class="col-12 " style=" position:absolute; top: 52%;  width:100%;">
+            <img class="float-left" style="height:35px; cursor:pointer;" src="~/images/diploma.svg" /><br /><br />
+            <p>Certifications</p>
+        </div>
+
+
+
+        <div id="windowsMenu" class="container-fluid shadow-lg" style="position:absolute; bottom:35px; height:0%; width:0%; background-color:#ffffff4d;">
+            <div class="row" style="position:absolute; bottom:22%; left:7%;">
+                <img class="windowsMenuIcons device shadow-sm" id="avatarButton"  style="height:27%; width:27%; opacity:0; cursor:pointer; border-radius: 35px;"onmouseenter="hover('avatarButton')" onmouseout="hoverRemove('avatarButton')" src="~/images/avatar.jpeg" />
+            </div>
+            <div class="row" style="position:absolute; bottom:12%; left:7%;">
+                <img class="windowsMenuIcons device shadow-sm" id="settingButton"  style="height:27%; width:27%; opacity:0; cursor:pointer;"onmouseenter="hover('settingButton')" onmouseout="hoverRemove('settingButton')" src="~/images/settings.svg" />
+            </div>
+            <div class="row" style="        position: absolute;
+        bottom: 2%;
+        left: 7%;
+">
+                <img class="windowsMenuIcons device  shadow-sm" id="powerButton"  style="height:25%; width:25%; opacity:0; cursor:pointer;"onmouseenter="hover('powerButton')" onmouseout="hoverRemove('powerButton')" onclick="shutDown()" src="~/images/power.svg" />
+            </div>
+        </div>
+        <div class="col-12 shadow-lg" style=" position: absolute;bottom: 0;width: 100%;background-color: #ffffff4d;">
+            <img id="d3" class=" device shadow-sm" style="height:35px; width:65px;" onmouseenter="hover('d3')" onmouseout="hoverRemove('d3')" onclick="showDesktopMenu()" src="~/images/windows-logo.svg" />
+            <img id="dr" class="device shadow-sm" style="position:absolute; top:1%; bottom:1%; right:5%; height:34px; width:65px;" onmouseenter="hover('d4')" onmouseout="hoverRemove('d4')" src="~/images/volume.svg"/>
+        </div>
+    </div>
+    <div id="secondDiv" class="row" style="width: 100%; ">
+        <div class="col-12 typewriter w-25 p-3">
+            <h1 style="text-align: center;  ">Choose a device!</h1>
+        </div>
+        <div class="col-12 col-sm-4 offset-sm-2 ">
+            <img id="d1" class="shadow-sm device" onmouseenter="hover('d1')" onmouseout="hoverRemove('d1')" onclick="insertDevice('secondDiv')" src="~/images/iPhone.svg" />
+        </div>
+
+        <div class="col-12 col-sm-4 ">
+            <img id="d2" class="shadow-sm device" onmouseenter="hover('d2')" onmouseout="hoverRemove('d2')" onclick="insertDevice('d2')" src="~/images/Monitor.svg" />
+        </div>
+    </div>
+
+
+    <div id="loading" class="row" style="opacity:0; position:absolute; right:30%; left:30%; top:48%; bottom:50%; border: 1px solid blue; border-radius: 5px;">
+       <div id="loading-bar" class="" style="background-color:blue; width:0%;" ></div>
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <script>
+
+
+        function hover(name) {
+            document.getElementById(name).classList.add("shadow");
+        }
+        function hoverRemove(name) {
+            document.getElementById(name).classList.remove("shadow");
+        }
+        function shutDown() {
+              document.getElementById('deskDiv').classList.add("fade-out-fast");
+              document.getElementById('deskDiv').classList.remove("fade-in");
+              document.getElementById('mainDiv').classList.remove("bg");
+             setTimeout(function () {
+                   document.getElementById('secondDiv').classList.add("fade-in-fast");
+                   document.getElementById('secondDiv').classList.remove("fade-out");
+                }, 1000);
+        }
+        function insertDevice(name) {
+
+            document.getElementById('secondDiv').classList.add("fade-out");
+            
+            
+
+            if (name == 'd2') {
+                setTimeout(function () {
+                    document.getElementById('loading').classList.add("fade-in");
+                    document.getElementById('loading').classList.remove("fade-out");
+                  
+                }, 200);
+                setTimeout(function () {
+                    document.getElementById('loading-bar').classList.add("loading");
+                }, 1000);
+                 
+                setTimeout(function () {
+                    
+                    document.getElementById('loading').classList.add("fade-out");
+                    document.getElementById('loading').classList.remove("fade-in");
+                    document.getElementById('deskDiv').classList.add("fade-in");
+                    document.getElementById('deskDiv').classList.remove("fade-out-fast");
+                    document.getElementById('mainDiv').classList.add("bg");
+                }, 1500);
+                document.getElementById('loading-bar').classList.remove("loading");
+            }
+        }
+        function showDesktopMenu() {
+            var windowsMenuIcons = document.getElementsByClassName('windowsMenuIcons');
+            if (document.getElementById('windowsMenu').classList.contains('fade-in-large')) {
+               
+                document.getElementById('windowsMenu').classList.add("fade-out-large");
+                
+                for(var i = 0; i < windowsMenuIcons.length; i++) {
+                    windowsMenuIcons[i].classList.add("fade-out-fast");
+                     windowsMenuIcons[i].classList.remove("fade-in-fast");
+                }
+                document.getElementById('windowsMenu').classList.remove("fade-in-large");
+                   
+            } else {
+                
+                 document.getElementById('windowsMenu').classList.add("fade-in-large");
+                setTimeout(function () {
+                 for(var i = 0; i < windowsMenuIcons.length; i++) {
+                     windowsMenuIcons[i].classList.add("fade-in-fast");
+                     windowsMenuIcons[i].classList.remove("fade-out-fast");
+                 }}, 100);
+                document.getElementById('windowsMenu').classList.remove("fade-out-large");
+            }
+
+        }
+    </script>
+}
