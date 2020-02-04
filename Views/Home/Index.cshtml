@@ -41,6 +41,15 @@
             animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
         }
 
+        .windowBar {
+            height: 30px;
+            background-color: silver;
+            cursor: grab;
+        }
+
+            .windowBar:active {
+                cursor: grabbing;
+            }
         /* The typing effect */
         @@keyframes typing {
             from {
@@ -245,27 +254,27 @@
 
     <div id="deskDiv" class="row" style=" opacity: 0; " pointer-events: none;">
         <div class="col-12 desktop-icons" style=" position:absolute; top: 2%;  width:100%;">
-            <img class=" float-left" id="icon-computer" style="height:35px; cursor:pointer;" src="~/images/mycomputer.svg" onclick="desktopIconClick(this.id)"/><br /><br />
+            <img class=" float-left" id="icon-computer" style="height:35px; cursor:pointer;" src="~/images/mycomputer.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>Computer</p>
         </div>
         <div class="col-12 desktop-icons" style=" position:absolute; top: 12%;  width:100%;">
-            <img class="float-left" id="icon-projects" style="height:35px; cursor:pointer;" src="~/images/folder.svg" onclick="desktopIconClick(this.id)"/><br /><br />
+            <img class="float-left" id="icon-projects" style="height:35px; cursor:pointer;" src="~/images/folder.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>Projects</p>
         </div>
         <div class="col-12 desktop-icons " style=" position:absolute; top: 22%;  width:100%;">
-            <img class="float-left" id="icon-linkedin" style="height:35px; cursor:pointer;" src="~/images/linkedin.svg" onclick="desktopIconClick(this.id)"/><br /><br />
+            <img class="float-left" id="icon-linkedin" style="height:35px; cursor:pointer;" src="~/images/linkedin.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>Linkedin</p>
         </div>
         <div class="col-12 desktop-icons" style=" position:absolute; top: 32%;  width:100%;">
-            <img class="float-left" id="icon-github" style="height:35px; cursor:pointer;" src="~/images/github.svg" onclick="desktopIconClick(this.id)"/><br /><br />
+            <img class="float-left" id="icon-github" style="height:35px; cursor:pointer;" src="~/images/github.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>Github</p>
         </div>
         <div class="col-12 desktop-icons" style=" position:absolute; top: 42%;  width:100%;">
-            <img class="float-left" id="icon-cv" style="height:35px; cursor:pointer;" src="~/images/cv.svg" onclick="desktopIconClick(this.id)"/><br /><br />
+            <img class="float-left" id="icon-cv" style="height:35px; cursor:pointer;" src="~/images/cv.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>CV</p>
         </div>
         <div class="col-12 desktop-icons" style=" position:absolute; top: 52%;  width:100%;">
-            <img class="float-left" id="icon-certifications" style="height:35px; cursor:pointer;" src="~/images/diploma.svg" onclick="desktopIconClick(this.id)"/><br /><br />
+            <img class="float-left" id="icon-certifications" style="height:35px; cursor:pointer;" src="~/images/diploma.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>Certifications</p>
         </div>
 
@@ -314,10 +323,10 @@
 </div>
 <div id="openWindows">
     <div class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%; border: 2px solid silver; cursor:nwse-resize;'>
-        <div class="row" style="height:30px;  background-color:silver; cursor:grab;">
-            <img id="" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer;" onclick="insertDevice('secondDiv')" src="~/images/minimize.svg" />
-            <img id="" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer;" onclick="insertDevice('secondDiv')" src="~/images/maximize.svg" />
-            <img id="" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer;" onclick="insertDevice('secondDiv')" src="~/images/close.svg" />
+        <div class="row windowBar"  >
+            <img id="" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="insertDevice('secondDiv')" src="~/images/minimize.svg" />
+            <img id="" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="insertDevice('secondDiv')" src="~/images/maximize.svg" />
+            <img id="" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="insertDevice('secondDiv')" src="~/images/close.svg" />
         </div>
     </div>
 </div>
@@ -329,14 +338,14 @@
         if (document.addEventListener) {
             document.addEventListener('contextmenu', function (e) {
                 if (document.getElementById('deskDiv').classList.contains('fade-in')) {
-                e.preventDefault();
-                var x = event.clientX;     // Get the horizontal coordinate
-                var y = event.clientY;     // Get the vertical coordinate
+                    e.preventDefault();
+                    var x = event.clientX;     // Get the horizontal coordinate
+                    var y = event.clientY;     // Get the vertical coordinate
 
-                var elem = document.getElementById("refreshMenu");
-                elem.innerHTML = "<div class='container' style='position:absolute; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
+                    var elem = document.getElementById("refreshMenu");
+                    elem.innerHTML = "<div class='container' style='position:absolute; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
                 }
-                
+
             }, false);
         }
         function resetWindows() {
@@ -349,7 +358,7 @@
         function refresh() {
             var windowsMenuIcons = document.getElementsByClassName('desktop-icons');
             var elem = document.getElementById("refreshMenu");
-             elem.innerHTML = "";
+            elem.innerHTML = "";
             for (var i = 0; i < windowsMenuIcons.length; i++) {
                 windowsMenuIcons[i].classList.add("refresh");
 
@@ -364,9 +373,9 @@
                 }
             }, 500);
         }
-         function desktopIconClick(id) {
-             var elem = document.getElementById("openWindows");
-             console.log(id);
+        function desktopIconClick(id) {
+            var elem = document.getElementById("openWindows");
+            console.log(id);
             switch (id) {
                 case "icon-computer":
                     elem.innerHTML += "<div class='container' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%;'></div>";
