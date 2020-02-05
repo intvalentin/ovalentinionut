@@ -322,11 +322,14 @@
 
 </div>
 <div id="openWindows">
-    <div class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%; border: 2px solid silver; cursor:nwse-resize;'>
-        <div class="row windowBar"  >
-            <img id="" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="insertDevice('secondDiv')" src="~/images/minimize.svg" />
-            <img id="" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="insertDevice('secondDiv')" src="~/images/maximize.svg" />
-            <img id="" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="insertDevice('secondDiv')" src="~/images/close.svg" />
+    <div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%; border: 3px solid silver; cursor:nwse-resize;'>
+        <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
+            <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
+            <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
+            <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
+        </div>
+        <div class="row" style="background-color:white; height:93%; cursor:default;">
+
         </div>
     </div>
 </div>
@@ -334,7 +337,10 @@
 @section Scripts{
 
     <script>
-
+        var div = null;
+        var offset = [0, 0];
+        var isDown = false;
+        var mousePosition;
         if (document.addEventListener) {
             document.addEventListener('contextmenu', function (e) {
                 if (document.getElementById('deskDiv').classList.contains('fade-in')) {
@@ -348,6 +354,39 @@
 
             }, false);
         }
+        function dragWindow(id) {
+            isDown = true;
+            div = document.getElementById('window'+id);
+            offset = [
+                div.offsetLeft - event.clientX,
+                div.offsetTop - event.clientY
+            ];
+            mousePosition = {
+
+                x: event.clientX,
+                y: event.clientY
+
+            };
+            div.style.left = (mousePosition.x + offset[0]) + 'px';
+            div.style.top = (mousePosition.y + offset[1]) + 'px';
+        }
+        function dragWindowMouseUp() {
+            isDown = false;
+            div = null;
+        }
+        document.addEventListener('mousemove', function (event) {
+            event.preventDefault();
+            if (isDown && div != null) {
+                mousePosition = {
+
+                    x: event.clientX,
+                    y: event.clientY
+
+                };
+                div.style.left = (mousePosition.x + offset[0]) + 'px';
+                div.style.top = (mousePosition.y + offset[1]) + 'px';
+            }
+        }, true);
         function resetWindows() {
             var elem = document.getElementById("refreshMenu");
             if (elem.innerHTML != "") {
