@@ -246,10 +246,14 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .noScroll {
+            overflow: hidden;
+        }
     </style>
 
 }
-<div id="mainDiv" class="container-fluid" onmousedown="resetWindows()" style="position:absolute; bottom:0; top:0;">
+<div id="mainDiv" class="container-fluid" onmousedown="resetWindows()" style="position: absolute; bottom: 0; top: 0;">
 
 
     <div id="deskDiv" class="row" style=" opacity: 0; " pointer-events: none;">
@@ -329,7 +333,9 @@
             <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
         </div>
         <div class="row" style="background-color:white; height:93%; cursor:default;">
-
+            <object data="~/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;">
+                alt : <a href="~/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
+            </object>
         </div>
     </div>
 </div>
@@ -354,9 +360,19 @@
 
             }, false);
         }
+        function closeWindow(id) {
+
+            var elem = document.getElementById('window' + id);
+            elem.classList.add('fade-out-fast');
+            setTimeout(function () {
+                elem.innerHTML = "";
+                elem.remove();
+            },400);
+
+        }
         function dragWindow(id) {
             isDown = true;
-            div = document.getElementById('window'+id);
+            div = document.getElementById('window' + id);
             offset = [
                 div.offsetLeft - event.clientX,
                 div.offsetTop - event.clientY
