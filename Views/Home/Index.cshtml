@@ -326,27 +326,29 @@
 
 </div>
 <div id="openWindows">
-    <div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%; border: 3px solid silver; cursor:nwse-resize;'>
+    @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
         <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
             <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
             <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
             <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
         </div>
         <div class="row" style="background-color:white; height:93%; cursor:default;">
-            <object data="~/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;">
-                alt : <a href="~/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
+            <iframe id="iFrameDialog" src="https://github.com/intvalentin" width="100%" height="100%"></iframe>
             </object>
         </div>
-    </div>
+    </div>*@
 </div>
 
 @section Scripts{
 
     <script>
+        //Variables for dragging window
         var div = null;
         var offset = [0, 0];
         var isDown = false;
         var mousePosition;
+        //Variables for windows
+        var windowsNumber = 0;
         if (document.addEventListener) {
             document.addEventListener('contextmenu', function (e) {
                 if (document.getElementById('deskDiv').classList.contains('fade-in')) {
@@ -367,7 +369,13 @@
             setTimeout(function () {
                 elem.innerHTML = "";
                 elem.remove();
-            },400);
+            }, 400);
+
+        }
+        function minimizeWindow(id) {
+
+        }
+        function maximizeWindow(id) {
 
         }
         function dragWindow(id) {
@@ -439,13 +447,19 @@
 
                     break;
                 case "icon-linkedin":
-
+                    var win = window.open('https://www.linkedin.com/in/ovalentinionut/', '_blank');
+                    win.focus();
                     break;
                 case "icon-github":
+                    var win = window.open('https://github.com/intvalentin', '_blank');
+                    win.focus();
+                    break;
+                case "icon-cv":
 
+                    elem.insertAdjacentHTML('beforeend', '<div id="window' + windowsNumber + '" value="pdf' + windowsNumber + '" class="container-fluid" style="position:absolute; left:20%; top:10%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;"> <div id="' + windowsNumber + '" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()"> <img id="' + windowsNumber + '" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="/images/minimize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="/images/maximize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:5px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="/images/close.svg"/> </div><div class="row" style="background-color:white; height:93%; cursor:default;"> <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;"> alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> </object> </div></div>');
+                    windowsNumber++;
                     break;
                 case "icon-certifications":
-
                     break;
 
             }
