@@ -172,7 +172,7 @@
 
         .scale-in {
             animation: scale-in 0.5s linear both;
-            pointer-events: auto;
+            pointer-events: inherit;
         }
 
         @@keyframes scale-in {
@@ -253,10 +253,11 @@
     </style>
 
 }
+
 <div id="mainDiv" class="container-fluid" onmousedown="resetWindows()" style="position: absolute; bottom: 0; top: 0;">
 
-
-    <div id="deskDiv" class="row" style=" opacity: 0; " pointer-events: none;">
+    @* PC *@
+    <div id="deskDiv" class="row" style=" opacity: 0; ">
         <div class="col-12 desktop-icons" style=" position:absolute; top: 2%;  width:100%;">
             <img class=" float-left" id="icon-computer" style="height:35px; cursor:pointer;" src="~/images/mycomputer.svg" onclick="desktopIconClick(this.id)" /><br /><br />
             <p>Computer</p>
@@ -284,6 +285,21 @@
 
 
 
+        @* Div where windows are opened *@
+        <div id="openWindows" style="position:absolute; bottom:35px; top:0; left:0; right: 0; opacity: 0;  pointer-events:none;">
+            @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
+                    <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
+                        <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
+                        <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
+                        <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
+                    </div>
+                    <div class="row" style="background-color:white; height:93%; cursor:default;">
+                        <iframe id="iFrameDialog" src="https://github.com/intvalentin" width="100%" height="100%"></iframe>
+                        </object>
+                    </div>
+                </div>*@
+        </div>
+        @* PC menu that is opened from bottom left corner *@
         <div id="windowsMenu" class="container-fluid shadow-lg" style="position:absolute; bottom:35px; height:0%; width:0%; background-color:#ffffff4d;">
             <div class="row" style="position:absolute; bottom:22%; left:7%;">
                 <img class="windowsMenuIcons device shadow-sm" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer; border-radius: 35px;" onmouseenter="hover('avatarButton')" onmouseout="hoverRemove('avatarButton')" src="~/images/avatar.jpeg" />
@@ -291,18 +307,18 @@
             <div class="row" style="position:absolute; bottom:12%; left:7%;">
                 <img class="windowsMenuIcons device shadow-sm" id="settingButton" style="height:27%; width:27%; opacity:0; cursor:pointer;" onmouseenter="hover('settingButton')" onmouseout="hoverRemove('settingButton')" src="~/images/settings.svg" />
             </div>
-            <div class="row" style="        position: absolute;
-        bottom: 2%;
-        left: 7%;
-">
+            <div class="row" style=" position: absolute; bottom: 2%;left: 7%;">
                 <img class="windowsMenuIcons device  shadow-sm" id="powerButton" style="height:25%; width:25%; opacity:0; cursor:pointer;" onmouseenter="hover('powerButton')" onmouseout="hoverRemove('powerButton')" onclick="shutDown()" src="~/images/power.svg" />
             </div>
         </div>
+        @* PC bottom bar *@
         <div class="col-12 shadow-lg" style=" position: absolute;bottom: 0;width: 100%;background-color: #ffffff4d;">
             <img id="d3" class=" device shadow-sm" style="height:35px; width:65px;" onmouseenter="hover('d3')" onmouseout="hoverRemove('d3')" onclick="showDesktopMenu()" src="~/images/windows-logo.svg" />
             <img id="dr" class="device shadow-sm" style="position:absolute; top:1%; bottom:1%; right:5%; height:34px; width:65px;" onmouseenter="hover('d4')" onmouseout="hoverRemove('d4')" src="~/images/volume.svg" />
         </div>
     </div>
+
+    @* Home options: Phone / PC *@
     <div id="secondDiv" class="row" style="width: 100%; ">
         <div class="col-12 typewriter w-25 p-3">
             <h1 style="text-align: center;  ">Choose a device!</h1>
@@ -316,27 +332,15 @@
         </div>
     </div>
 
-
+    @* PC loading animation div *@
     <div id="loading" class="row" style="opacity:0; position:absolute; right:30%; left:30%; top:48%; bottom:50%; border: 1px solid blue; border-radius: 5px;">
         <div id="loading-bar" class="" style="background-color:blue; width:0%;"></div>
     </div>
 
 </div>
+@* PC right click opens a menu *@
 <div id="refreshMenu">
 
-</div>
-<div id="openWindows">
-    @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
-        <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
-            <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
-            <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
-            <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
-        </div>
-        <div class="row" style="background-color:white; height:93%; cursor:default;">
-            <iframe id="iFrameDialog" src="https://github.com/intvalentin" width="100%" height="100%"></iframe>
-            </object>
-        </div>
-    </div>*@
 </div>
 
 @section Scripts{
@@ -347,8 +351,14 @@
         var offset = [0, 0];
         var isDown = false;
         var mousePosition;
+        
         //Variables for windows
+        //To see if windows are maximized or not
+        var isMaximized = [];
+        //Opened windows
         var windowsNumber = 0;
+
+
         if (document.addEventListener) {
             document.addEventListener('contextmenu', function (e) {
                 if (document.getElementById('deskDiv').classList.contains('fade-in')) {
@@ -357,7 +367,7 @@
                     var y = event.clientY;     // Get the vertical coordinate
 
                     var elem = document.getElementById("refreshMenu");
-                    elem.innerHTML = "<div class='container' style='position:absolute; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
+                    elem.innerHTML = "<div class='container' style='position:absolute; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer; postiion:absolute; left:0; right:0;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
                 }
 
             }, false);
@@ -369,15 +379,43 @@
             setTimeout(function () {
                 elem.innerHTML = "";
                 elem.remove();
+                delete isMaximized["" + id + ""];
             }, 400);
 
         }
         function minimizeWindow(id) {
-
+            
         }
+       
+        //Maximize window
         function maximizeWindow(id) {
+            let elem = document.getElementById('window' + id);
+
+            if (isMaximized["" + id + ""] == null) {
+                isMaximized.push({ key: "" + id + "", value: "yes" });
+                elem.style.width = "100%";
+                elem.style.height = "100%";
+                elem.style.left = "0%";
+                elem.style.top = "0%";
+                isMaximized["" + id + ""] = "yes";
+            }
+            else if (isMaximized["" + id + ""] == "yes") {
+                elem.style.width = "60%";
+                elem.style.height = "80%";
+                elem.style.top = "20%";
+                elem.style.left = "20%";
+                isMaximized["" + id + ""] = "no";
+            } else {
+                elem.style.width = "100%";
+                elem.style.height = "100%";
+                elem.style.left = "0%";
+                elem.style.top = "0%";
+                isMaximized["" + id + ""] = "yes";
+            }
+
 
         }
+        //Drag Window
         function dragWindow(id) {
             isDown = true;
             div = document.getElementById('window' + id);
@@ -394,6 +432,7 @@
             div.style.left = (mousePosition.x + offset[0]) + 'px';
             div.style.top = (mousePosition.y + offset[1]) + 'px';
         }
+
         function dragWindowMouseUp() {
             isDown = false;
             div = null;
@@ -411,6 +450,8 @@
                 div.style.top = (mousePosition.y + offset[1]) + 'px';
             }
         }, true);
+
+        //Refresh option from right click menu
         function resetWindows() {
             var elem = document.getElementById("refreshMenu");
             if (elem.innerHTML != "") {
@@ -418,6 +459,8 @@
             }
 
         }
+
+        //Refresh desktop icons
         function refresh() {
             var windowsMenuIcons = document.getElementsByClassName('desktop-icons');
             var elem = document.getElementById("refreshMenu");
@@ -436,6 +479,8 @@
                 }
             }, 500);
         }
+
+        //Open window or link based on desktop icons
         function desktopIconClick(id) {
             var elem = document.getElementById("openWindows");
             console.log(id);
@@ -456,7 +501,7 @@
                     break;
                 case "icon-cv":
 
-                    elem.insertAdjacentHTML('beforeend', '<div id="window' + windowsNumber + '" value="pdf' + windowsNumber + '" class="container-fluid" style="position:absolute; left:20%; top:10%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;"> <div id="' + windowsNumber + '" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()"> <img id="' + windowsNumber + '" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="/images/minimize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="/images/maximize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:5px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="/images/close.svg"/> </div><div class="row" style="background-color:white; height:93%; cursor:default;"> <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;"> alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> </object> </div></div>');
+                    elem.insertAdjacentHTML('beforeend', '<div class="pdf" id="window' + windowsNumber + '" value="pdf' + windowsNumber + '" class="container-fluid" style="position:absolute; z-index:1; pointer-events: auto;left:20%; top:10%; background-color:white; width:60%; height:80%; border: 3px solid silver; "> <div id="' + windowsNumber + '" class="row windowBar" style="margin-right: 0% !important; margin-left: 0% !important;" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()"> <img id="' + windowsNumber + '" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="/images/minimize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="/images/maximize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:5px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="/images/close.svg"/> </div><div class="row" style="background-color:white; height:97%; cursor:default; margin-right: 0% !important; margin-left: 0% !important;"> <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;"> alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> </object> </div></div>');
                     windowsNumber++;
                     break;
                 case "icon-certifications":
@@ -464,21 +509,33 @@
 
             }
         }
+
+        //Set hover shadow
         function hover(name) {
             document.getElementById(name).classList.add("shadow");
         }
+        //Remove hover shadow
         function hoverRemove(name) {
             document.getElementById(name).classList.remove("shadow");
         }
+
+        //For now is log off option
         function shutDown() {
             document.getElementById('deskDiv').classList.add("fade-out-fast");
             document.getElementById('deskDiv').classList.remove("fade-in");
+            document.getElementById('openWindows').classList.add("fade-out-fast");
+            document.getElementById('openWindows').classList.remove("fade-in");
+
             document.getElementById('mainDiv').classList.remove("bg");
             setTimeout(function () {
                 document.getElementById('secondDiv').classList.add("fade-in-fast");
                 document.getElementById('secondDiv').classList.remove("fade-out");
+
+
             }, 1000);
         }
+
+        //Open specific Phone or PC view based on site home options
         function insertDevice(name) {
 
             document.getElementById('secondDiv').classList.add("fade-out");
@@ -499,13 +556,21 @@
 
                     document.getElementById('loading').classList.add("fade-out");
                     document.getElementById('loading').classList.remove("fade-in");
+
                     document.getElementById('deskDiv').classList.add("fade-in");
                     document.getElementById('deskDiv').classList.remove("fade-out-fast");
+
+                    document.getElementById('openWindows').classList.remove("fade-out-fast");
+                    document.getElementById('openWindows').classList.add("fade-in");
+
+
                     document.getElementById('mainDiv').classList.add("bg");
                 }, 1500);
                 document.getElementById('loading-bar').classList.remove("loading");
             }
         }
+
+        //Show 'windows' left corner menu
         function showDesktopMenu() {
             var windowsMenuIcons = document.getElementsByClassName('windowsMenuIcons');
             if (document.getElementById('windowsMenu').classList.contains('fade-in-large')) {
