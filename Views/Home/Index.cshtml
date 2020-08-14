@@ -27,8 +27,38 @@
             }
 
         /* GLOBAL STYLES */
+        #minimzeWindowButton {
+            position: absolute;
+            right: 12.3%;
+            top: 0.2%;
+            height: 4%;
+            width: 4%;
+            cursor: pointer;
+            user-select: none;
+        }
 
+        #maximizeWindowButton {
+            position: absolute;
+            right: 6.3%;
+            top: 0.2%;
+            height: 4%;
+            cursor: pointer;
+            user-select: none;
+        }
 
+        #closeWindowButton {
+            position: absolute;
+            right: 0.7%;
+            top: 0.2%;
+            height: 4%;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .rborder { 
+            border: 6px;
+            border-radius: 25px;
+        }
         /* DEMO-SPECIFIC STYLES */
         .typewriter h1 {
             color: #000;
@@ -42,9 +72,11 @@
         }
 
         .windowBar {
-            height: 30px;
+            height: 5%;
             background-color: silver;
             cursor: grab;
+            margin-right: 0% !important; 
+            margin-left: 0% !important;
         }
 
             .windowBar:active {
@@ -286,21 +318,30 @@
 
 
         @* Div where windows are opened *@
-        <div id="openWindows" style="position:absolute; bottom:35px; top:0; left:0; right: 0; opacity: 0;  pointer-events:none;">
-            @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
-                    <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
-                        <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
-                        <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
-                        <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
-                    </div>
-                    <div class="row" style="background-color:white; height:93%; cursor:default;">
-                        <iframe id="iFrameDialog" src="https://github.com/intvalentin" width="100%" height="100%"></iframe>
-                        </object>
-                    </div>
-                </div>*@
+    <div id="openWindows" style="position:absolute; bottom:35px; top:0; left:0; right: 0; opacity: 0;  pointer-events:none;">
+        @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
+            <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
+                <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
+                <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
+                <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
+            </div>
+            <div class="row" style="background-color:white; height:93%; cursor:default;">
+                </object>
+            </div>
+        </div>*@
+        <div class="pdf" id="window1" value="pdf1" class="container-fluid" style="position:absolute; z-index:1; pointer-events: auto;left:20%; top:10%; background-color:white; width:60%; height:80%; border: 6px solid silver; border-radius: 10px; "> 
+        <div data-window="window1" class="row windowBar" onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()"> 
+            <img id="minimzeWindowButton" data-window="window1" style="" onclick="minimizeWindow(this)" src="/images/minimize.svg" /> 
+            <img id="maximizeWindowButton" data-window="1" style="" onclick="maximizeWindow(this)" src="/images/maximize.svg" /> 
+            <img id="closeWindowButton" data-window="window1" style="" onclick="closeWindow(this)" src="/images/close.svg" /> 
         </div>
+        <div class="row" style="background-color:#C0C0C0; height:95%; cursor:default; margin: 0% !important;"> 
+            <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%; border: 6px solid silver; border-radius: 13px;"> alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> 
+                </object> 
+            </div></div>
+    </div>
         @* PC menu that is opened from bottom left corner *@
-        <div id="windowsMenu" class="container-fluid shadow-lg" style="position:absolute; bottom:35px; height:0%; width:0%; background-color:#ffffff4d;">
+        <div id="windowsMenu" class="container-fluid shadow-lg rborder" style="position:absolute; bottom:35px; left: 5px; height:0%; width:0%; background-color:#ffffff4d;">
             <div class="row" style="position:absolute; bottom:22%; left:7%;">
                 <img class="windowsMenuIcons device shadow-sm" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer; border-radius: 35px;" onmouseenter="hover('avatarButton')" onmouseout="hoverRemove('avatarButton')" src="~/images/avatar.jpeg" />
             </div>
@@ -313,15 +354,15 @@
         </div>
         @* PC bottom bar *@
         <div class="col-12 shadow-lg" style=" position: absolute;bottom: 0;width: 100%;background-color: #ffffff4d;">
-            <img id="d3" class=" device shadow-sm" style="height:35px; width:65px;" onmouseenter="hover('d3')" onmouseout="hoverRemove('d3')" onclick="showDesktopMenu()" src="~/images/windows-logo.svg" />
-            <img id="dr" class="device shadow-sm" style="position:absolute; top:1%; bottom:1%; right:5%; height:34px; width:65px;" onmouseenter="hover('d4')" onmouseout="hoverRemove('d4')" src="~/images/volume.svg" />
+            <img id="d3" class=" device shadow-lg" style="width: 20px; margin: 0.4%;" onmouseenter="hover('d3')" onmouseout="hoverRemove('d3')" onclick="showDesktopMenu()" src="~/images/windows-logo.svg" />
+            <img id="dr" class="device shadow-sm" style="position:absolute; right:5%; width:2%;" onmouseenter="hover('d4')" onmouseout="hoverRemove('d4')" src="~/images/volume.svg" />
         </div>
     </div>
 
     @* Home options: Phone / PC *@
     <div id="secondDiv" class="row" style="width: 100%; ">
         <div class="col-12 typewriter w-25 p-3">
-            <h1 style="text-align: center;  ">Choose a device!</h1>
+            <h1 style="text-align: center; ">Choose a device!</h1>
         </div>
         <div class="col-12 col-sm-4 offset-sm-2 ">
             <img id="d1" class="shadow-sm device" onmouseenter="hover('d1')" onmouseout="hoverRemove('d1')" onclick="insertDevice('secondDiv')" src="~/images/iPhone.svg" />
@@ -333,8 +374,16 @@
     </div>
 
     @* PC loading animation div *@
-    <div id="loading" class="row" style="opacity:0; position:absolute; right:30%; left:30%; top:48%; bottom:50%; border: 1px solid blue; border-radius: 5px;">
-        <div id="loading-bar" class="" style="background-color:blue; width:0%;"></div>
+    <div id="loading" class="row" style="        opacity: 0;
+        position: absolute;
+        right: 30%;
+        left: 30%;
+        top: 48%;
+        bottom: 50%;
+        border: 1px solid blue;
+        border-radius: 5px;">
+        <div id="loading-bar" class="" style="        background-color: blue;
+        width: 0%;"></div>
     </div>
 
 </div>
@@ -388,7 +437,8 @@
         }
        
         //Maximize window
-        function maximizeWindow(id) {
+        function maximizeWindow(element) {
+            let id = element.getAttribute('data-window');
             let elem = document.getElementById('window' + id);
 
             if (isMaximized["" + id + ""] == null) {
@@ -416,9 +466,9 @@
 
         }
         //Drag Window
-        function dragWindow(id) {
+        function dragWindow(element) {
             isDown = true;
-            div = document.getElementById('window' + id);
+            div = document.getElementById(element.getAttribute('data-window'));
             offset = [
                 div.offsetLeft - event.clientX,
                 div.offsetTop - event.clientY

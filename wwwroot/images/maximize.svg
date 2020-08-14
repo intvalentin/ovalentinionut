@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
-<metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
-<g><path d="M589.1,544.2c12.3,0,22.9,4.4,31.7,13.2l280.1,280.1V633.3c0-12.3,4.3-22.8,13.1-31.5c8.7-8.7,19.2-13.1,31.5-13.1s22.8,4.3,31.5,13.1c8.7,8.7,13.1,19.2,13.1,31.5v311.8c0,12.3-4.4,22.9-13.2,31.7c-8.8,8.8-19.4,13.2-31.7,13.2H633.3c-12.3,0-22.8-4.3-31.5-13.1c-8.7-8.7-13.1-19.2-13.1-31.5s4.3-22.8,13.1-31.5c8.7-8.7,19.2-13.1,31.5-13.1h204.3L557.4,620.8c-8.6-9.1-12.9-19.6-12.9-31.7c0-12.3,4.4-22.9,13.1-31.7C566.3,548.6,576.8,544.2,589.1,544.2z M54.5,10h311.8c12.3,0,22.8,4.4,31.5,13.1c8.7,8.7,13.1,19.2,13.1,31.5c0,12.3-4.4,22.8-13.1,31.5c-8.7,8.7-19.2,13.1-31.5,13.1H162.1l280.1,279.8c8.8,8.8,13.2,19.4,13.2,31.7s-4.4,22.8-13.2,31.5c-8.8,8.7-19.4,13.1-31.7,13.1c-11.8,0-22.4-4.3-31.7-12.9L99.1,162.1v204.3c0,12.3-4.4,22.8-13.1,31.5c-8.7,8.7-19.2,13.1-31.5,13.1c-12.3,0-22.8-4.4-31.5-13.1c-8.7-8.7-13.1-19.2-13.1-31.5V54.5c0-12.3,4.4-22.8,13.1-31.5C31.8,14.4,42.3,10,54.5,10L54.5,10z"/></g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
