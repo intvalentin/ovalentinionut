@@ -1,3 +1,3 @@
 # ovalentinionut
 Personal site
-https://ovalentinionut.somee.com/
+ http://www.ovalentinionut.somee.com;
