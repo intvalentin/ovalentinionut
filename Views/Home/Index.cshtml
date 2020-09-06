@@ -5,11 +5,20 @@
 }
 @section Styles{
     <style>
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+        .bg {
+            /* The image used */
+            background: rgb(255,0,0);
+            background: linear-gradient(151deg, rgba(255,0,0,1) 0%, rgba(166,6,150,1) 47%, rgba(6,255,231,1) 100%, rgba(0,212,255,1) 100%);
+            /* Full height */
+            height: 100%;
+            width: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
 
+        }
+         
         @@font-face {
             font-family: myFirstFont;
             src: url(../fonts/OpenSans-SemiBold.ttf);
@@ -28,36 +37,48 @@
 
         /* GLOBAL STYLES */
         #minimzeWindowButton {
-            position: absolute;
-            right: 12.3%;
-            top: 0.2%;
-            height: 4%;
-            width: 4%;
+            height: -moz-available; /* WebKit-based browsers will ignore this. */
+            height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+            height: fill-available;
             cursor: pointer;
             user-select: none;
         }
 
         #maximizeWindowButton {
-            position: absolute;
-            right: 6.3%;
-            top: 0.2%;
-            height: 4%;
+            height: -moz-available; /* WebKit-based browsers will ignore this. */
+            height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+            height: fill-available;
             cursor: pointer;
             user-select: none;
         }
 
         #closeWindowButton {
-            position: absolute;
-            right: 0.7%;
-            top: 0.2%;
-            height: 4%;
+            height: -moz-available; /* WebKit-based browsers will ignore this. */
+            height: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+            height: fill-available;
             cursor: pointer;
             user-select: none;
         }
 
-        .rborder { 
+        .desktop-icons-label {
+            margin-top: 0.6%;
+        }
+
+        .rborder-icons {
+            width: inherit;
+            border-radius: 26%;
+            max-width: fit-content !important;
+            max-width: -moz-fit-content !important;
+        }
+
+        .rborder {
             border: 6px;
-            border-radius: 25px;
+            border-radius: 20px;
+        }
+
+        .vblur {
+            background-color: #f2f2f294 !important;
+            backdrop-filter: blur(3px);
         }
         /* DEMO-SPECIFIC STYLES */
         .typewriter h1 {
@@ -72,11 +93,9 @@
         }
 
         .windowBar {
-            height: 5%;
+            height: 20px;
             background-color: silver;
             cursor: grab;
-            margin-right: 0% !important; 
-            margin-left: 0% !important;
         }
 
             .windowBar:active {
@@ -105,7 +124,7 @@
         }
 
         .fade-out-large {
-            animation: fade-out-large 0.2s linear both;
+            animation: fade-out-large 0.2s normal both;
             pointer-events: none;
         }
 
@@ -123,7 +142,7 @@
         }
 
         .fade-in-large {
-            animation: fade-in-large 0.2s linear both;
+            animation: fade-in-large 0.2s normal both;
             pointer-events: auto;
         }
 
@@ -141,7 +160,7 @@
         }
 
         .fade-in {
-            animation: fade-in 1.5s linear both;
+            animation: fade-in 1.5s normal both;
             pointer-events: auto;
         }
 
@@ -156,7 +175,7 @@
         }
 
         .fade-in-fast {
-            animation: fade-in 0.1s linear both;
+            animation: fade-in 0.1s normal both;
             pointer-events: auto;
         }
 
@@ -171,7 +190,7 @@
         }
 
         .fade-out {
-            animation: fade-out 0.5s linear both;
+            animation: fade-out 0.5s normal both;
             pointer-events: none;
         }
 
@@ -187,7 +206,7 @@
         }
 
         .fade-out-fast {
-            animation: fade-out-fast 0.1s linear both;
+            animation: fade-out-fast 0.1s normal both;
             pointer-events: none;
         }
 
@@ -203,7 +222,7 @@
         }
 
         .scale-in {
-            animation: scale-in 0.5s linear both;
+            animation: scale-in 0.5s normal both;
             pointer-events: inherit;
         }
 
@@ -221,7 +240,7 @@
         }
 
         .scale-out {
-            animation: scale-out 0.5s linear both;
+            animation: scale-out 0.5s normal both;
             pointer-events: none;
         }
 
@@ -238,7 +257,7 @@
         }
 
         .loading {
-            animation: loading 0.5s linear both;
+            animation: loading 0.5s normal both;
             pointer-events: none;
         }
 
@@ -253,7 +272,7 @@
         }
 
         .refresh {
-            animation: refresh 0.1s linear both;
+            animation: refresh 0.1s normal both;
             pointer-events: none;
         }
 
@@ -267,17 +286,7 @@
             }
         }
 
-        .bg {
-            /* The image used */
-            background-image: url(../images/windows.jpg);
-            /* Full height */
-            height: 100%;
-            width: 100%;
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+
 
         .noScroll {
             overflow: hidden;
@@ -286,92 +295,114 @@
 
 }
 
-<div id="mainDiv" class="container-fluid" onmousedown="resetWindows()" style="position: absolute; bottom: 0; top: 0;">
+
+<div id="mainDiv" class="container-fluid" onmousedown="resetWindows()" style="position: absolute; bottom: 0; top: 0; padding: 0;">
 
     @* PC *@
-    <div id="deskDiv" class="row" style=" opacity: 0; ">
-        <div class="col-12 desktop-icons" style=" position:absolute; top: 2%;  width:100%;">
-            <img class=" float-left" id="icon-computer" style="height:35px; cursor:pointer;" src="~/images/mycomputer.svg" onclick="desktopIconClick(this.id)" /><br /><br />
-            <p>Computer</p>
-        </div>
-        <div class="col-12 desktop-icons" style=" position:absolute; top: 12%;  width:100%;">
-            <img class="float-left" id="icon-projects" style="height:35px; cursor:pointer;" src="~/images/folder.svg" onclick="desktopIconClick(this.id)" /><br /><br />
-            <p>Projects</p>
-        </div>
-        <div class="col-12 desktop-icons " style=" position:absolute; top: 22%;  width:100%;">
-            <img class="float-left" id="icon-linkedin" style="height:35px; cursor:pointer;" src="~/images/linkedin.svg" onclick="desktopIconClick(this.id)" /><br /><br />
-            <p>Linkedin</p>
-        </div>
-        <div class="col-12 desktop-icons" style=" position:absolute; top: 32%;  width:100%;">
-            <img class="float-left" id="icon-github" style="height:35px; cursor:pointer;" src="~/images/github.svg" onclick="desktopIconClick(this.id)" /><br /><br />
-            <p>Github</p>
-        </div>
-        <div class="col-12 desktop-icons" style=" position:absolute; top: 42%;  width:100%;">
-            <img class="float-left" id="icon-cv" style="height:35px; cursor:pointer;" src="~/images/cv.svg" onclick="desktopIconClick(this.id)" /><br /><br />
-            <p>CV</p>
-        </div>
-        <div class="col-12 desktop-icons" style=" position:absolute; top: 52%;  width:100%;">
-            <img class="float-left" id="icon-certifications" style="height:35px; cursor:pointer;" src="~/images/diploma.svg" onclick="desktopIconClick(this.id)" /><br /><br />
-            <p>Certifications</p>
-        </div>
+    <div id="deskDiv" class="row" style="opacity: 0; margin: 0; width: 100vw; height: 100vw;">
+        <div class="container" style="margin-left: 0; margin-top: 1%;">
+            <div class="row">
+                <div class="col-1  desktop-icons text-center">
+                    <img class=" float-left rborder-icons" id="icon-computer" style=" cursor: pointer;" src="~/images/mycomputer.svg" onclick="desktopIconClick(this.id)" />
+                    <span class="desktop-icons-label">Computer</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 desktop-icons text-center" >
+                    <img class="float-left rborder-icons" id="icon-projects" style="cursor:pointer;" src="~/images/folder.svg" onclick="desktopIconClick(this.id)" />
+                    <span class="desktop-icons-label">Projects</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 desktop-icons text-center">
+                    <img class="float-left rborder-icons" id="icon-linkedin" style=" cursor:pointer;" src="~/images/linkedin.svg" onclick="desktopIconClick(this.id)" />
+                    <span class="desktop-icons-label">Linkedin</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 desktop-icons text-center">
+                    <img class="float-left rborder-icons" id="icon-github" style=" cursor:pointer;" src="~/images/github.svg" onclick="desktopIconClick(this.id)" />
+                    <span class="desktop-icons-label">Github</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 desktop-icons text-center">
+                    <img class="float-left rborder-icons" id="icon-cv" style=" cursor:pointer;" src="~/images/cv.svg" onclick="desktopIconClick(this.id)" />
+                    <span class="desktop-icons-label">CV</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1 desktop-icons text-center">
+                    <img class="float-left rborder-icons" id="icon-certifications" style="cursor:pointer;" src="~/images/diploma.svg" onclick="desktopIconClick(this.id)" />
+                    <span class="desktop-icons-label">Certifications</span>
+                </div>
+            </div>
 
-
+        </div>
 
         @* Div where windows are opened *@
-    <div id="openWindows" style="position:absolute; bottom:35px; top:0; left:0; right: 0; opacity: 0;  pointer-events:none;">
-        @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
-            <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
-                <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
-                <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
-                <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
+        <div id="openWindows" style="position: absolute; bottom: 35px; top: 0; left: 0; right: 0; opacity: 0; pointer-events: none;">
+            @*<div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
+                <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
+                    <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="~/images/minimize.svg" />
+                    <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="~/images/maximize.svg" />
+                    <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="~/images/close.svg" />
+                </div>
+                <div class="row" style="background-color:white; height:93%; cursor:default;">
+                    </object>
+                </div>
+            </div>*@
+            <div class="pdf container" id="window1" value="pdf1"  style="max-width:100vw !important; position:absolute; z-index:1; pointer-events: auto;left:20%; top:10%; background-color:white; width:60%; height:80%; border: 6px solid silver; border-radius: 8px; ">
+                <div data-window="window1" class="row windowBar" onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">
+                    <div class="col-2 ml-auto d-flex justify-content-end">
+                        <div class="row" style="display: block;">
+                            <img class="mb-5" id="minimzeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="minimizeWindow(this)" src="/images/minimize.svg" />
+                            <img class="mb-5" id="maximizeWindowButton" data-window="1" style="padding-bottom: 2px !important;" onclick="maximizeWindow(this)" src="/images/maximize.svg" />
+                            <img class="mb-5" id="closeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="closeWindow(this)" src="/images/close.svg" />
+                        </div>
+                    </div> 
+                </div>
+                <div class="row" style="position: absolute; bottom: 0; top: 20px; right: 15px; left: 15px; background-color:#C0C0C0;  cursor:default;">
+                    <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px;">
+                        alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
+                    </object>
+                </div>
             </div>
-            <div class="row" style="background-color:white; height:93%; cursor:default;">
-                </object>
-            </div>
-        </div>*@
-        <div class="pdf" id="window1" value="pdf1" class="container-fluid" style="position:absolute; z-index:1; pointer-events: auto;left:20%; top:10%; background-color:white; width:60%; height:80%; border: 6px solid silver; border-radius: 10px; "> 
-        <div data-window="window1" class="row windowBar" onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()"> 
-            <img id="minimzeWindowButton" data-window="window1" style="" onclick="minimizeWindow(this)" src="/images/minimize.svg" /> 
-            <img id="maximizeWindowButton" data-window="1" style="" onclick="maximizeWindow(this)" src="/images/maximize.svg" /> 
-            <img id="closeWindowButton" data-window="window1" style="" onclick="closeWindow(this)" src="/images/close.svg" /> 
         </div>
-        <div class="row" style="background-color:#C0C0C0; height:95%; cursor:default; margin: 0% !important;"> 
-            <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%; border: 6px solid silver; border-radius: 13px;"> alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> 
-                </object> 
-            </div></div>
-    </div>
         @* PC menu that is opened from bottom left corner *@
-        <div id="windowsMenu" class="container-fluid shadow-lg rborder" style="position:absolute; bottom:35px; left: 5px; height:0%; width:0%; background-color:#ffffff4d;">
-            <div class="row" style="position:absolute; bottom:22%; left:7%;">
-                <img class="windowsMenuIcons device shadow-sm" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer; border-radius: 35px;" onmouseenter="hover('avatarButton')" onmouseout="hoverRemove('avatarButton')" src="~/images/avatar.jpeg" />
+        <div id="windowsMenu" class="container-fluid shadow-lg rborder vblur" style="position:absolute; bottom:38px; left: 5px; height:0%; width:0%; background-color:#ffffff4d; will-change: transform, auto;">
+            <div class="row" style="position:absolute; bottom:22%; left: 42px;">
+                <img class="windowsMenuIcons device shadow-sm rborder" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="~/images/avatar.jpeg" />
             </div>
-            <div class="row" style="position:absolute; bottom:12%; left:7%;">
-                <img class="windowsMenuIcons device shadow-sm" id="settingButton" style="height:27%; width:27%; opacity:0; cursor:pointer;" onmouseenter="hover('settingButton')" onmouseout="hoverRemove('settingButton')" src="~/images/settings.svg" />
+            <div class="row" style="position:absolute; bottom:12%; left: 42px;">
+                <img class="windowsMenuIcons device shadow-sm rborder" id="settingButton" style="  height: 38px; opacity: 0; cursor: pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="~/images/settings.svg" />
             </div>
-            <div class="row" style=" position: absolute; bottom: 2%;left: 7%;">
-                <img class="windowsMenuIcons device  shadow-sm" id="powerButton" style="height:25%; width:25%; opacity:0; cursor:pointer;" onmouseenter="hover('powerButton')" onmouseout="hoverRemove('powerButton')" onclick="shutDown()" src="~/images/power.svg" />
+            <div class="row" style=" position: absolute; bottom: 2%;left: 42px;">
+                <img class="windowsMenuIcons device  shadow-sm rborder" id="powerButton" style="height:38px;  opacity:0; cursor:pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="shutDown()" src="~/images/power.svg" />
             </div>
         </div>
         @* PC bottom bar *@
-        <div class="col-12 shadow-lg" style=" position: absolute;bottom: 0;width: 100%;background-color: #ffffff4d;">
-            <img id="d3" class=" device shadow-lg" style="width: 20px; margin: 0.4%;" onmouseenter="hover('d3')" onmouseout="hoverRemove('d3')" onclick="showDesktopMenu()" src="~/images/windows-logo.svg" />
-            <img id="dr" class="device shadow-sm" style="position:absolute; right:5%; width:2%;" onmouseenter="hover('d4')" onmouseout="hoverRemove('d4')" src="~/images/volume.svg" />
+        <div class="row shadow-lg vblur justify-content-center" style=" position: absolute;bottom: 0;width: -webkit-fill-available; width:-moz-available; background-color: #ffffff4d;">
+            <div class="col-2">
+                <img class=" device shadow-sm" id="d3" style="        height: 30px;
+        width: 30px;
+        margin: 0.2%;
+        margin-left: 50px;
+        border-radius: 14%;" onmouseenter="h50px(this)" onmouseout="hoverRemove(this)" onclick="showDesktopMenu()" src="~/images/windows-logo.svg" />
+            </div>
+            <div class="col-8 justify-content-center">
+                <div class=" d-flex justify-content-center" id="openedWindows" style="height: 35px; color:red;">
+                    <img id="icon-cv" class="shadow-sm" style="height:26px; height: auto; cursor:pointer; width:90px; border-radius: 10px;" src="~/images/cv.svg" onclick="desktopIconClick(this.id)" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" /><br /><br />
+                </div>
+            </div>
+            <div class="col-2 justify-content-center">
+                <img id="dr" class="device shadow-sm" style=" height: 30px; margin: 0.2%;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="~/images/volume.svg" />
+            </div>
+
         </div>
     </div>
 
-    @* Home options: Phone / PC *@
-    <div id="secondDiv" class="row" style="width: 100%; ">
-        <div class="col-12 typewriter w-25 p-3">
-            <h1 style="text-align: center; ">Choose a device!</h1>
-        </div>
-        <div class="col-12 col-sm-4 offset-sm-2 ">
-            <img id="d1" class="shadow-sm device" onmouseenter="hover('d1')" onmouseout="hoverRemove('d1')" onclick="insertDevice('secondDiv')" src="~/images/iPhone.svg" />
-        </div>
 
-        <div class="col-12 col-sm-4 ">
-            <img id="d2" class="shadow-sm device" onmouseenter="hover('d2')" onmouseout="hoverRemove('d2')" onclick="insertDevice('d2')" src="~/images/Monitor.svg" />
-        </div>
-    </div>
 
     @* PC loading animation div *@
     <div id="loading" class="row" style="        opacity: 0;
@@ -391,6 +422,22 @@
 <div id="refreshMenu">
 
 </div>
+@* Home options: Phone / PC *@
+<div id="secondDiv" class="container" style="width: 100%; ">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12 typewriter w-25 p-3">
+            <h1 style="text-align: center;    width: 337px; ">Choose a device!</h1>
+        </div>
+
+        <div class="col-12 col-sm-4 offset-sm-2 d-flex justify-content-center" style="margin: 5%">
+            <img id="d1" class="shadow-sm device rborder vblur" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="insertDevice('secondDiv')" src="~/images/iPhone.svg" />
+        </div>
+
+        <div class="col-12 col-sm-4 d-flex justify-content-center" style="margin: 5%">
+            <img id="d2" class="shadow-sm device rborder vblur" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="insertDevice('d2')" src="~/images/Monitor.svg" />
+        </div>
+    </div>
+</div>
 
 @section Scripts{
 
@@ -400,7 +447,7 @@
         var offset = [0, 0];
         var isDown = false;
         var mousePosition;
-        
+
         //Variables for windows
         //To see if windows are maximized or not
         var isMaximized = [];
@@ -416,7 +463,7 @@
                     var y = event.clientY;     // Get the vertical coordinate
 
                     var elem = document.getElementById("refreshMenu");
-                    elem.innerHTML = "<div class='container' style='position:absolute; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer; postiion:absolute; left:0; right:0;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
+                    elem.innerHTML = "<div  style='position:absolute; border: 6px; border-radius: 9px; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer; postiion:absolute; left:0; right:0;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
                 }
 
             }, false);
@@ -433,9 +480,9 @@
 
         }
         function minimizeWindow(id) {
-            
+
         }
-       
+
         //Maximize window
         function maximizeWindow(element) {
             let id = element.getAttribute('data-window');
@@ -561,12 +608,12 @@
         }
 
         //Set hover shadow
-        function hover(name) {
-            document.getElementById(name).classList.add("shadow");
+        function hover(element) {
+            element.classList.add("shadow");
         }
         //Remove hover shadow
-        function hoverRemove(name) {
-            document.getElementById(name).classList.remove("shadow");
+        function hoverRemove(element) {
+            element.classList.remove("shadow");
         }
 
         //For now is log off option
@@ -636,12 +683,12 @@
             } else {
 
                 document.getElementById('windowsMenu').classList.add("fade-in-large");
-                setTimeout(function () {
-                    for (var i = 0; i < windowsMenuIcons.length; i++) {
-                        windowsMenuIcons[i].classList.add("fade-in-fast");
-                        windowsMenuIcons[i].classList.remove("fade-out-fast");
-                    }
-                }, 100);
+                //setTimeout(function () {
+                for (var i = 0; i < windowsMenuIcons.length; i++) {
+                    windowsMenuIcons[i].classList.add("fade-in-fast");
+                    windowsMenuIcons[i].classList.remove("fade-out-fast");
+                }
+                //}, 200);
                 document.getElementById('windowsMenu').classList.remove("fade-out-large");
             }
 
