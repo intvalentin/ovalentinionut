@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>App</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <style>
         .bg {
             /* The image used */
@@ -23,7 +23,7 @@
          
         @font-face {
             font-family: myFirstFont;
-            src: url(../fonts/OpenSans-SemiBold.ttf);
+            src: url(./fonts/OpenSans-SemiBold.ttf);
         }
 
         h1, label, p {
@@ -309,37 +309,37 @@
         <div class="container" style="margin-left: 0; margin-top: 1%;">
             <div class="row">
                 <div class="col-1  desktop-icons text-center">
-                    <img class=" float-left rborder-icons" id="icon-computer" style=" cursor: pointer;" src="../images/mycomputer.svg" onclick="desktopIconClick(this.id)" />
+                    <img class=" float-left rborder-icons" id="icon-computer" style=" cursor: pointer;" src="./images/mycomputer.svg" onclick="desktopIconClick(this.id)" />
                     <span class="desktop-icons-label">Computer</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-1 desktop-icons text-center" >
-                    <img class="float-left rborder-icons" id="icon-projects" style="cursor:pointer;" src="../images/folder.svg" onclick="desktopIconClick(this.id)" />
+                    <img class="float-left rborder-icons" id="icon-projects" style="cursor:pointer;" src="./images/folder.svg" onclick="desktopIconClick(this.id)" />
                     <span class="desktop-icons-label">Projects</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-linkedin" style=" cursor:pointer;" src="../images/linkedin.svg" onclick="desktopIconClick(this.id)" />
+                    <img class="float-left rborder-icons" id="icon-linkedin" style=" cursor:pointer;" src="./images/linkedin.svg" onclick="desktopIconClick(this.id)" />
                     <span class="desktop-icons-label">Linkedin</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-github" style=" cursor:pointer;" src="../images/github.svg" onclick="desktopIconClick(this.id)" />
+                    <img class="float-left rborder-icons" id="icon-github" style=" cursor:pointer;" src="./images/github.svg" onclick="desktopIconClick(this.id)" />
                     <span class="desktop-icons-label">Github</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-cv" style=" cursor:pointer;" src="../images/cv.svg" onclick="desktopIconClick(this.id)" />
+                    <img class="float-left rborder-icons" id="icon-cv" style=" cursor:pointer;" src="./images/cv.svg" onclick="desktopIconClick(this.id)" />
                     <span class="desktop-icons-label">CV</span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-certifications" style="cursor:pointer;" src="../images/diploma.svg" onclick="desktopIconClick(this.id)" />
+                    <img class="float-left rborder-icons" id="icon-certifications" style="cursor:pointer;" src="./images/diploma.svg" onclick="desktopIconClick(this.id)" />
                     <span class="desktop-icons-label">Certifications</span>
                 </div>
             </div>
@@ -350,9 +350,9 @@
         <div id="openWindows" style="position: absolute; bottom: 35px; top: 0; left: 0; right: 0; opacity: 0; pointer-events: none;">
             <!-- <div id="window1" class='container-fluid' style='position:absolute; left:20%; top:20%; background-color:white; width:60%; height:80%; border: 3px solid silver; cursor:nwse-resize;'>
                 <div id="1" class="row windowBar" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()">
-                    <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="../images/minimize.svg" />
-                    <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="../images/maximize.svg" />
-                    <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="../images/close.svg" />
+                    <img id="1" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="./images/minimize.svg" />
+                    <img id="1" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="./images/maximize.svg" />
+                    <img id="1" style="position:absolute; right:5px;  top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="./images/close.svg" />
                 </div>
                 <div class="row" style="background-color:white; height:93%; cursor:default;">
                     </object>
@@ -362,15 +362,15 @@
                 <div data-window="window1" class="row windowBar" onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">
                     <div class="col-2 ml-auto d-flex justify-content-end">
                         <div class="row" style="display: block;">
-                            <img class="mb-5" id="minimzeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="minimizeWindow(this)" src="../images/minimize.svg" />
-                            <img class="mb-5" id="maximizeWindowButton" data-window="1" style="padding-bottom: 2px !important;" onclick="maximizeWindow(this)" src="../images/maximize.svg" />
-                            <img class="mb-5" id="closeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="closeWindow(this)" src="../images/close.svg" />
+                            <img class="mb-5" id="minimzeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="minimizeWindow(this)" src="./images/minimize.svg" />
+                            <img class="mb-5" id="maximizeWindowButton" data-window="1" style="padding-bottom: 2px !important;" onclick="maximizeWindow(this)" src="./images/maximize.svg" />
+                            <img class="mb-5" id="closeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="closeWindow(this)" src="./images/close.svg" />
                         </div>
                     </div> 
                 </div>
                 <div class="row" style="position: absolute; bottom: 0; top: 20px; right: 15px; left: 15px; background-color:#C0C0C0;  cursor:default;">
-                    <object data="../images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px;">
-                        alt : <a href="../images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
+                    <object data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px;">
+                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
                     </object>
                 </div>
             </div>
@@ -378,13 +378,13 @@
         <!--  PC menu that is opened from bottom left corner -->
         <div id="windowsMenu" class="container-fluid shadow-lg rborder vblur" style="position:absolute; bottom:38px; left: 5px; height:0%; width:0%; background-color:#ffffff4d; will-change: transform, auto;">
             <div class="row" style="position:absolute; bottom:22%; left: 42px;">
-                <img class="windowsMenuIcons device shadow-sm rborder" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="../images/avatar.jpeg" />
+                <img class="windowsMenuIcons device shadow-sm rborder" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="./images/avatar.jpeg" />
             </div>
             <div class="row" style="position:absolute; bottom:12%; left: 42px;">
-                <img class="windowsMenuIcons device shadow-sm rborder" id="settingButton" style="  height: 38px; opacity: 0; cursor: pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="../images/settings.svg" />
+                <img class="windowsMenuIcons device shadow-sm rborder" id="settingButton" style="  height: 38px; opacity: 0; cursor: pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="./images/settings.svg" />
             </div>
             <div class="row" style=" position: absolute; bottom: 2%;left: 42px;">
-                <img class="windowsMenuIcons device  shadow-sm rborder" id="powerButton" style="height:38px;  opacity:0; cursor:pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="shutDown()" src="../images/power.svg" />
+                <img class="windowsMenuIcons device  shadow-sm rborder" id="powerButton" style="height:38px;  opacity:0; cursor:pointer;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="shutDown()" src="./images/power.svg" />
             </div>
         </div>
         <!--  PC bottom bar -->
@@ -394,15 +394,15 @@
         width: 30px;
         margin: 0.2%;
         margin-left: 50px;
-        border-radius: 14%;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="showDesktopMenu()" src="../images/windows-logo.svg" />
+        border-radius: 14%;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="showDesktopMenu()" src="./images/windows-logo.svg" />
             </div>
             <div class="col-8 justify-content-center">
                 <div class=" d-flex justify-content-center" id="openedWindows" style="height: 35px; color:red;">
-                    <img id="icon-cv" class="shadow-sm" style="height:26px; height: auto; cursor:pointer; width:90px; border-radius: 10px;" src="../images/cv.svg" onclick="desktopIconClick(this.id)" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" /><br /><br />
+                    <img id="icon-cv" class="shadow-sm" style="height:26px; height: auto; cursor:pointer; width:90px; border-radius: 10px;" src="./images/cv.svg" onclick="desktopIconClick(this.id)" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" /><br /><br />
                 </div>
             </div>
             <div class="col-2 justify-content-center">
-                <img id="dr" class="device shadow-sm" style=" height: 30px; margin: 0.2%;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="../images/volume.svg" />
+                <img id="dr" class="device shadow-sm" style=" height: 30px; margin: 0.2%;" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" src="./images/volume.svg" />
             </div>
 
         </div>
@@ -436,19 +436,19 @@
         </div>
 
         <div class="col-12 col-sm-4 offset-sm-2 d-flex justify-content-center" style="margin: 5%">
-            <img id="d1" class="shadow-sm device rborder vblur" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="insertDevice('secondDiv')" src="../images/iPhone.svg" />
+            <img id="d1" class="shadow-sm device rborder vblur" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="insertDevice('secondDiv')" src="./images/iPhone.svg" />
         </div>
 
         <div class="col-12 col-sm-4 d-flex justify-content-center" style="margin: 5%">
-            <img id="d2" class="shadow-sm device rborder vblur" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="insertDevice('d2')" src="../images/Monitor.svg" />
+            <img id="d2" class="shadow-sm device rborder vblur" onmouseenter="hover(this)" onmouseout="hoverRemove(this)" onclick="insertDevice('d2')" src="./images/Monitor.svg" />
         </div>
     </div>
 </div>
     </main>
     <footer></footer>
 
-    <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script>
  	
