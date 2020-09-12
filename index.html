@@ -4,336 +4,14 @@
 <head>
     <meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
-    <title>App</title>
-    <style>
-        .bg {
-            background-size: cover;
-            background: rgb(255,0,0);
-            background: linear-gradient(151deg, rgba(255,0,0,1) 0%, rgba(166,6,150,1) 47%, rgba(6,255,231,1) 100%, rgba(0,212,255,1) 100%);
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-         
-        @font-face {
-            font-family: myFirstFont;
-            src: url(./fonts/font.otf);
-        }
-       
-        #minimzeWindowButton {
-            height: 25px; 
-        }
-
-        #maximizeWindowButton {
-            height: 25px;
-        }
-
-        #closeWindowButton {
-            height: 25px;
-        }
-        .desktop-icons {
-            display: grid;
-            width: 50px;
-        }
-
-
-        .fade-out-large {
-            animation: fade-out-large 0.2s normal both;
-            pointer-events: none;
-        }
-
-        @keyframes fade-out-large {
-            0% {
-                height: 60%;
-                width: 45%;
-            }
-
-
-            100% {
-                height: 0%;
-                width: 40%;
-            }
-        }
-
-        .fade-in-large {
-            animation: fade-in-large 0.2s normal both;
-            pointer-events: auto;
-        }
-
-        @keyframes fade-in-large {
-            0% {
-                height: 0%;
-                width: 40%;
-            }
-
-
-            100% {
-                height: 60%;
-                width: 45%;
-            }
-        }
-
-        .fade-in {
-            animation: fade-in 1.5s normal both;
-            pointer-events: auto;
-        }
-
-        @keyframes fade-in {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 100;
-            }
-        }
-
-        .fade-in-fast {
-            animation: fade-in 0.1s normal both;
-            pointer-events: auto;
-        }
-
-        @keyframes fade-in-fast {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 100;
-            }
-        }
-
-        .fade-out {
-            animation: fade-out 0.5s normal both;
-            pointer-events: none;
-        }
-
-        @keyframes fade-out {
-            0% {
-                opacity: 100;
-            }
-
-
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .fade-out-fast {
-            animation: fade-out-fast 0.1s normal both;
-            pointer-events: none;
-        }
-
-        @keyframes fade-out-fast {
-            0% {
-                opacity: 100;
-            }
-
-
-            100% {
-                opacity: 0;
-            }
-        }
-
-        .scale-in {
-            animation: scale-in 0.5s normal both;
-            pointer-events: inherit;
-        }
-
-        @keyframes scale-in {
-            0% {
-                height: 0%;
-                width: 0%;
-            }
-
-
-            100% {
-                height: 25%;
-                width: 25%;
-            }
-        }
-
-        .scale-out {
-            animation: scale-out 0.5s normal both;
-            pointer-events: none;
-        }
-
-        @keyframes scale-out {
-            0% {
-                height: 25%;
-                width: 25%;
-            }
-
-            100% {
-                height: 0%;
-                width: 0%;
-            }
-        }
-
-        body {
-            font-family: myFirstFont;
-            transition-duration: 0.5s;
-            transition-property: background;
-        }
-        /*Start Components */
-        * {
-            box-sizing: border-box;
-        }
-        html, body, main {
-            margin: 0;
-            height: 100%;
-        }
-        .round-left {
-            margin-right: auto !important;
-        }
-        .round-right {
-            margin-left: auto !important;
-        }
-        body * {
-            border-radius: 16px;
-        }
-        .round-container {
-            display: flex;
-            flex-flow: column;
-            padding: 5px;
-        }
-        .round-row { 
-            display: flex;
-            flex-flow: wrap;
-            flex-wrap: wrap;
-            flex-grow: 1;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-        }
-        .round-compact .round-row {
-            flex-grow: 0 !important;
-        }
-        
-        .img {
-            max-height: 100%;
-            max-width: 100%;
-        }
-        .round-row::after {
-            content: "";
-            clear: both;
-        }
-       
-        /* General: */
-        .round-col-1 {flex-basis: 8.33%; min-width: 8.33%;}
-        .round-col-2 {flex-basis: 16.66%; min-width: 8.33%;}
-        .round-col-3 {flex-basis: 25%; min-width: 8.33%;}
-        .round-col-4 {flex-basis: 33.33%; min-width: 8.33%;}
-        .round-col-5 {flex-basis: 41.66%; min-width: 8.33%;}
-        .round-col-6 {flex-basis: 50%; min-width: 8.33%;}
-        .round-col-7 {flex-basis: 58.33%; min-width: 8.33%;}
-        .round-col-8 {flex-basis: 66.66%; min-width: 8.33%;}
-        .round-col-9 {flex-basis: 75%; min-width: 8.33%;}
-        .round-col-10 {flex-basis: 83.33%; min-width: 8.33%;}
-        .round-col-11 {flex-basis: 91.66%; min-width: 8.33%;}
-        .round-col-12 {flex-basis: 100%; min-width: 8.33%;}
-        @media only screen and (max-width: 600px) {
-        /* For desktop: */
-        .round-col-phone-1 {flex-basis: 8.33% !important;}
-        .round-col-phone-2 {flex-basis: 16.66% !important;}
-        .round-col-phone-3 {flex-basis: 25% !important;}
-        .round-col-phone-4 {flex-basis: 33.33% !important;}
-        .round-col-phone-5 {flex-basis: 41.66% !important;}
-        .round-col-phone-6 {flex-basis: 50% !important;}
-        .round-col-phone-7 {flex-basis: 58.33% !important;}
-        .round-col-phone-8 {flex-basis: 66.66% !important;}
-        .round-col-phone-9 {flex-basis: 75% !important;}
-        .round-col-phone-10 {flex-basis: 83.33% !important;}
-        .round-col-phone-11 {flex-basis: 91.66% !important;}
-        .round-col-phone-12 {flex-basis: 100% !important;}
-
-        .round-compact-phone .round-row {flex-grow: 0 !important;} 
-        }
-        [class*="round-col-"] {
-            display: flex;
-            flex-flow: column;
-            /* flex-grow: 1; */
-            align-items: center;
-            justify-content: center;
-        }
-        
-
-        .round-shadow {
-            transition-duration: 0.150s;
-            transition-property: box-shadow;
-            -webkit-box-shadow: 0px 0px 6px 1px rgba(0 0 0 / 60%) !important;
-            -moz-box-shadow: 0px 0px 6px 1px rgba(0 0 0 / 60%) !important;
-            box-shadow: 0px 0px 6px 1px rgba(0 0 0 / 60%) !important;
-        }
-        .round-shadow:hover {
-            -webkit-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
-            -moz-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
-            box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
-        }
-        .round-shadow-default {
-            -webkit-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
-            -moz-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
-            box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
-        }
-        
-        .round-menu-v1 {
-            /* Menu */
-            height: 6rem;
-            width: 90vw;
-            position: absolute; 
-            bottom: 1vw; 
-            left: 5vw;
-            overflow: hidden;
-            background-color: #ffffff4d;
-            transition: all 0.150s;
-            will-change: height, width, left, box-shadow;
-            font-size: 1.5vw;
-        }
-        .round-menu-v1:hover {
-            /* Menu animation*/
-            min-height: 7rem;
-            height: auto;
-            width: 96vw;
-            left: 2vw;
-        }
-        .round-inline {
-            display: inline;
-        }
-        @media only screen and (max-width: 600px) {
-        /* For desktop: */
-            .round-menu-v1 {
-                font-size: 4vw;
-                bottom: 1vw; 
-                overflow: auto;
-            }
-            .round-menu-v1:hover {
-                height: calc(100% - 2vw) !important;
-            }
-        }
-        .round-elem-vert {
-            flex-flow: column;
-        }
-
-        .round-no-scroll {
-            overflow: hidden;
-        }
-        
-        .round-cursor-pointer {
-            cursor: pointer;
-        }
-        /*End Components */
-
-    </style>
-
+    <title>ovalentinionut</title>
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/round.css">
 </head>
 <body class="round-no-scroll" id="body">
-
     <header>
     </header>
-   
     <main>
-
         <!--  Div where windows are opened -->
         <div id="openWindows" style="position: absolute; bottom: 0; top: 0; left: 0; right: 0;">
             <!-- <div class="round-container round-shadow pdf  openedWindows container" id="window1" value="pdf1" style="position: absolute; z-index:1;width: 60%; height: 80%; left: 312px; top: 15px; ">
@@ -367,8 +45,10 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <img id="icon-projects" style="cursor:pointer; width: 63px" src="./images/folder.svg" onclick="desktopIconClick(this.id)" />
-                            <span>Projects</span>
+                            <button style="background: none; border: none;  outline:none;">
+                                <img id="icon-github" style="cursor:pointer; width: 63px" src="./images/github.svg" onclick="desktopIconClick(this.id)" />
+                            <span>Github</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -376,8 +56,10 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
+                            <button style="background: none; border: none;  outline:none;">
                             <img id="icon-linkedin" style="cursor:pointer; width: 63px" src="./images/linkedin.svg" onclick="desktopIconClick(this.id)" />
                             <span>Linkedin</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -385,8 +67,10 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <img id="icon-github" style="cursor:pointer; width: 63px" src="./images/github.svg" onclick="desktopIconClick(this.id)" />
-                            <span>Github</span>
+                            <button style="background: none; border: none;  outline:none;">
+                                <img id="icon-cv" style="cursor:pointer; width: 63px" src="./images/cv.svg" onclick="desktopIconClick(this.id)" />
+                            <span>CV</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -394,8 +78,10 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <img id="icon-cv" style="cursor:pointer; width: 63px" src="./images/cv.svg" onclick="desktopIconClick(this.id)" />
-                            <span>CV</span>
+                            <button style="background: none; border: none;  outline:none;">
+                                <img id="icon-projects" style="cursor:pointer; width: 63px" src="./images/folder.svg" onclick="desktopIconClick(this.id)" />
+                                <span>Projects</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -403,8 +89,10 @@
                 <div class="round-col-phone-1 round-col-2 ">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <img id="icon-certifications" style="cursor:pointer; max-width: 63px" src="./images/diploma.svg" onclick="desktopIconClick(this.id)" />
+                            <button style="background: none; border: none;  outline:none;">
+                                <img id="icon-certifications" style="cursor:pointer; max-width: 63px" src="./images/diploma.svg" onclick="desktopIconClick(this.id)" />
                             <span>Certifications</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -412,245 +100,9 @@
             </div>
         </div>
     </div>
-
     </main>
     <footer></footer>
-
-    
-    <script>
-         //Variables for dragging window
-        var div = null;
-        var offset = [0, 0];
-        var isDown = false;
-        var mousePosition;
-        const root = document.documentElement;
-        document.addEventListener('mousemove', evt => {
-            let x = evt.clientX / innerWidth;
-            let y = evt.clientY / innerHeight;
- 
-            root.style.setProperty('--mouse-x', x);
-            root.style.setProperty('--mouse-y', y);
-
-        });
-        document.addEventListener("DOMContentLoaded", function(event) { 
-
-            // document.getElementById('deskDiv').classList.add("fade-in");
-            // document.getElementById('deskDiv').classList.remove("fade-out-fast");
-            // document.getElementById('openWindows').classList.remove("fade-out-fast");
-            // document.getElementById('openWindows').classList.add("fade-in");
-            document.getElementById('body').classList.add("bg");
-        });
-   
-
-       
-       
-
-        //Variables for windows
-        //To see if windows are maximized or not
-        var isMaximized = [];
-        //Opened windows
-        var windowsNumber = 0;
-
-
-        if (document.addEventListener) {
-            document.addEventListener('contextmenu', function (e) {
-                if (document.getElementById('deskDiv').classList.contains('fade-in')) {
-                    e.preventDefault();
-                    var x = event.clientX;     // Get the horizontal coordinate
-                    var y = event.clientY;     // Get the vertical coordinate
-
-                    var elem = document.getElementById("refreshMenu");
-                    elem.innerHTML = "<div  style='position:absolute; border: 6px; border-radius: 9px; left:" + x + "px; top:" + y + "px; background-color:white; width:100px; '> <div  class=' text-center shadow-lg' style='cursor:pointer; postiion:absolute; left:0; right:0;' onclick='refresh()'>Refresh</div> <div  class=' text-center shadow-lg' style='cursor:pointer; border-top: 1px solid black;'>Personalize</div> </div>";
-                }
-
-            }, false);
-
-            document.addEventListener("hover", function(evnt){
-                if (evnt.target.classList.contains('shadow-sm')){
-                    this.hover(evnt.target);
-                }
-            });
-        }
-        function closeWindow(element) {
-            let id = element.getAttribute('data-window');
-            let elem = document.getElementById('window' + id);
-            elem.classList.add('fade-out-fast');
-            setTimeout(function () {
-                elem.innerHTML = "";
-                elem.remove();
-                delete isMaximized["" + id + ""];
-            }, 400);
-
-        }
-        function minimizeWindow(id) {
-
-        }
-
-        //Maximize window
-        function maximizeWindow(element) {
-            let id = element.getAttribute('data-window');
-            let elem = document.getElementById('window' + id);
-
-            if (isMaximized["" + id + ""] == null) {
-                isMaximized.push({ key: "" + id + "", value: "yes" });
-                elem.style.width = "100%";
-                elem.style.height = "100%";
-                elem.style.left = "0%";
-                elem.style.top = "0%";
-                isMaximized["" + id + ""] = "yes";
-            }
-            else if (isMaximized["" + id + ""] == "yes") {
-                elem.style.width = "60%";
-                elem.style.height = "80%";
-                elem.style.top = "20%";
-                elem.style.left = "20%";
-                isMaximized["" + id + ""] = "no";
-            } else {
-                elem.style.width = "100%";
-                elem.style.height = "100%";
-                elem.style.left = "0%";
-                elem.style.top = "0%";
-                isMaximized["" + id + ""] = "yes";
-            }
-
-
-        }
-        //Drag Window
-        function dragWindow(element) {
-            isDown = true;
-            div = document.getElementById(element.getAttribute('data-window'));
-            offset = [
-                div.offsetLeft - event.clientX,
-                div.offsetTop - event.clientY
-            ];
-            mousePosition = {
-
-                x: event.clientX,
-                y: event.clientY
-
-            };
-            div.style.left = (mousePosition.x + offset[0]) + 'px';
-            div.style.top = (mousePosition.y + offset[1]) + 'px';
-        }
-
-        function dragWindowMouseUp() {
-            isDown = false;
-            div = null;
-        }
-        document.addEventListener('mousemove', function (event) {
-            event.preventDefault();
-            if (isDown && div != null) {
-                mousePosition = {
-
-                    x: event.clientX,
-                    y: event.clientY
-
-                };
-                div.style.left = (mousePosition.x + offset[0]) + 'px';
-                div.style.top = (mousePosition.y + offset[1]) + 'px';
-            }
-        }, true);
-
-        //Refresh option from right click menu
-        function resetWindows() {
-            var elem = document.getElementById("refreshMenu");
-            if (elem.innerHTML != "") {
-                elem.innerHTML = "";
-            }
-
-        }
-
-        //Refresh desktop icons
-        function refresh() {
-            var windowsMenuIcons = document.getElementsByClassName('desktop-icons');
-            var elem = document.getElementById("refreshMenu");
-            elem.innerHTML = "";
-            for (var i = 0; i < windowsMenuIcons.length; i++) {
-                windowsMenuIcons[i].classList.add("refresh");
-
-
-            }
-            setTimeout(function () {
-                for (var i = 0; i < windowsMenuIcons.length; i++) {
-
-
-                    windowsMenuIcons[i].classList.remove("refresh");
-
-                }
-            }, 500);
-        }
-
-        //Open window or link based on desktop icons
-        function desktopIconClick(id) {
-            var elem = document.getElementById("openWindows");
-            console.log(id);
-            switch (id) {
-                case "icon-computer":
-                    elem.innerHTML += "<div class='container' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%;'></div>";
-                    break;
-                case "icon-projects":
-
-                    break;
-                case "icon-linkedin":
-                    var win = window.open('https://www.linkedin.com/in/ovalentinionut/', '_blank');
-                    win.focus();
-                    break;
-                case "icon-github":
-                    var win = window.open('https://github.com/intvalentin', '_blank');
-                    win.focus();
-                    break;
-                case "icon-cv":
-
-                    elem.insertAdjacentHTML('beforeend', '<div class="round-container round-shadow pdf  openedWindows container" id="window'+id+'" value="pdf1" style="position: absolute; z-index:1;width: 60%; height: 80%; left: 10vw; top: 10vw; ">                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window'+id+'"  onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">                    <div class="round-col-phone-12 round-col-2 round-right">                        <div class="round-row">                            <!-- <div class="round-col-3">                                <img class="round-cursor-pointer" id="minimzeWindowButton" data-window="window'+id+'" onclick="minimizeWindow(this)" src="./images/minimize.svg" />                            </div> -->                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="maximizeWindowButton" data-window="'+id+'" onclick="maximizeWindow(this)" src="./images/maximize.png" />                            </div>                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="closeWindowButton" data-window="'+id+'" onclick="closeWindow(this)" src="./images/close.png" />                            </div>                        </div>                    </div>                </div>                <div class="round-row round-elem-vert">                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>                    </object>                </div>            </div>');
-                    windowsNumber++;
-                    break;
-                case "icon-certifications":
-                    break;
-
-            }
-        }
-
-
-        //Open specific Phone or PC view based on site home options
-        function insertDevice(name) {
-
-            document.getElementById('secondDiv').classList.add("fade-out");
-
-
-
-            if (name == 'd2') {
-                
-
-                
-            }
-        }
-
-        //Show 'windows' left corner menu
-        function showDesktopMenu() {
-            var windowsMenuIcons = document.getElementsByClassName('windowsMenuIcons');
-            if (document.getElementById('windowsMenu').classList.contains('fade-in-large')) {
-
-                document.getElementById('windowsMenu').classList.add("fade-out-large");
-
-                for (var i = 0; i < windowsMenuIcons.length; i++) {
-                    windowsMenuIcons[i].classList.add("fade-out-fast");
-                    windowsMenuIcons[i].classList.remove("fade-in-fast");
-                }
-                document.getElementById('windowsMenu').classList.remove("fade-in-large");
-
-            } else {
-
-                document.getElementById('windowsMenu').classList.add("fade-in-large");
-                //setTimeout(function () {
-                for (var i = 0; i < windowsMenuIcons.length; i++) {
-                    windowsMenuIcons[i].classList.add("fade-in-fast");
-                    windowsMenuIcons[i].classList.remove("fade-out-fast");
-                }
-                //}, 200);
-                document.getElementById('windowsMenu').classList.remove("fade-out-large");
-            }
-
-        }
-    </script>
+    <script src="./js/round.js"></script>
+    <script src="./js/default.js"></script>
 </body>
 </html>
