@@ -5,132 +5,38 @@
     <meta http-equiv="content-type" content="text/html" ; charset="utf-8" />
     <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
     <title>App</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
     <style>
         .bg {
-            /* The image used */
+            background-size: cover;
             background: rgb(255,0,0);
             background: linear-gradient(151deg, rgba(255,0,0,1) 0%, rgba(166,6,150,1) 47%, rgba(6,255,231,1) 100%, rgba(0,212,255,1) 100%);
-            /* Full height */
-            height: 100%;
-            width: 100%;
             /* Center and scale the image nicely */
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
-
         }
          
         @font-face {
             font-family: myFirstFont;
-            src: url(./fonts/OpenSans-SemiBold.ttf);
+            src: url(./fonts/font.otf);
         }
-
-        h1, label, p {
-            font-family: myFirstFont;
-        }
-
-        .device {
-            cursor: pointer;
-        }
-
-            .device:hover {
-            }
-
-        /* GLOBAL STYLES */
+       
         #minimzeWindowButton {
-            height: 19px; /* WebKit-based browsers will ignore this. */
-            height: fill-available;
-            cursor: pointer;
-            user-select: none;
+            height: 25px; 
         }
 
         #maximizeWindowButton {
-            height: 19px; /* WebKit-based browsers will ignore this. */
-            height: fill-available;
-            cursor: pointer;
-            user-select: none;
-            margin-left: 5px;
+            height: 25px;
         }
 
         #closeWindowButton {
-            height: 19px; /* WebKit-based browsers will ignore this. */
-            height: fill-available;
-            cursor: pointer;
-            user-select: none;
-            margin-left: 5px;
+            height: 25px;
         }
         .desktop-icons {
             display: grid;
             width: 50px;
         }
 
-        .desktop-icons-label {
-            margin-top: 0.6%;
-            display: grid;
-        }
-
-        
-        .rborder-icons {
-            width: inherit;
-            border-radius: 26%;
-            max-width: fit-content !important;
-            max-width: -moz-fit-content !important;
-        }
-
-        .rborder {
-            border: 6px;
-            border-radius: 20px;
-        }
-
-        .vblur {
-            background-color: #f2f2f294 !important;
-            backdrop-filter: blur(3px);
-        }
-        /* DEMO-SPECIFIC STYLES */
-        .typewriter h1 {
-            color: #000;
-            font-family: monospace;
-            overflow: hidden; /* Ensures the content is not revealed until the animation */
-            border-right: .15em solid orange; /* The typwriter cursor */
-            white-space: nowrap; /* Keeps the content on a single line */
-            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-            letter-spacing: .1em; /* Adjust as needed */
-            animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
-        }
-
-        .windowBar {
-            height: 20px;
-            background-color: silver;
-            cursor: grab;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-            .windowBar:active {
-                cursor: grabbing;
-            }
-        /* The typing effect */
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        /* The typewriter cursor effect */
-        @keyframes blink-caret {
-            from, to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: orange
-            }
-        }
 
         .fade-out-large {
             animation: fade-out-large 0.2s normal both;
@@ -265,206 +171,279 @@
             }
         }
 
-        .loading {
-            animation: loading 0.5s normal both;
-            pointer-events: none;
+        body {
+            font-family: myFirstFont;
+            transition-duration: 0.5s;
+            transition-property: background;
         }
-
-        @keyframes loading {
-            0% {
-                width: 0%;
-            }
-
-            100% {
-                width: 100%;
-            }
+        /*Start Components */
+        * {
+            box-sizing: border-box;
         }
-
-        .refresh {
-            animation: refresh 0.1s normal both;
-            pointer-events: none;
+        html, body, main {
+            margin: 0;
+            height: 100%;
         }
-
-        @keyframes refresh {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 100;
-            }
+        .round-left {
+            margin-right: auto !important;
         }
-        .shadow-sm {
+        .round-right {
+            margin-left: auto !important;
+        }
+        body * {
+            border-radius: 16px;
+        }
+        .round-container {
+            display: flex;
+            flex-flow: column;
+            padding: 5px;
+        }
+        .round-row { 
+            display: flex;
+            flex-flow: wrap;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .round-compact .round-row {
+            flex-grow: 0 !important;
+        }
+        
+        .img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        .round-row::after {
+            content: "";
+            clear: both;
+        }
+       
+        /* General: */
+        .round-col-1 {flex-basis: 8.33%; min-width: 8.33%;}
+        .round-col-2 {flex-basis: 16.66%; min-width: 8.33%;}
+        .round-col-3 {flex-basis: 25%; min-width: 8.33%;}
+        .round-col-4 {flex-basis: 33.33%; min-width: 8.33%;}
+        .round-col-5 {flex-basis: 41.66%; min-width: 8.33%;}
+        .round-col-6 {flex-basis: 50%; min-width: 8.33%;}
+        .round-col-7 {flex-basis: 58.33%; min-width: 8.33%;}
+        .round-col-8 {flex-basis: 66.66%; min-width: 8.33%;}
+        .round-col-9 {flex-basis: 75%; min-width: 8.33%;}
+        .round-col-10 {flex-basis: 83.33%; min-width: 8.33%;}
+        .round-col-11 {flex-basis: 91.66%; min-width: 8.33%;}
+        .round-col-12 {flex-basis: 100%; min-width: 8.33%;}
+        @media only screen and (max-width: 600px) {
+        /* For desktop: */
+        .round-col-phone-1 {flex-basis: 8.33% !important;}
+        .round-col-phone-2 {flex-basis: 16.66% !important;}
+        .round-col-phone-3 {flex-basis: 25% !important;}
+        .round-col-phone-4 {flex-basis: 33.33% !important;}
+        .round-col-phone-5 {flex-basis: 41.66% !important;}
+        .round-col-phone-6 {flex-basis: 50% !important;}
+        .round-col-phone-7 {flex-basis: 58.33% !important;}
+        .round-col-phone-8 {flex-basis: 66.66% !important;}
+        .round-col-phone-9 {flex-basis: 75% !important;}
+        .round-col-phone-10 {flex-basis: 83.33% !important;}
+        .round-col-phone-11 {flex-basis: 91.66% !important;}
+        .round-col-phone-12 {flex-basis: 100% !important;}
+
+        .round-compact-phone .round-row {flex-grow: 0 !important;} 
+        }
+        [class*="round-col-"] {
+            display: flex;
+            flex-flow: column;
+            /* flex-grow: 1; */
+            align-items: center;
+            justify-content: center;
+        }
+        
+
+        .round-shadow {
             transition-duration: 0.150s;
             transition-property: box-shadow;
+            -webkit-box-shadow: 0px 0px 6px 1px rgba(0 0 0 / 60%) !important;
+            -moz-box-shadow: 0px 0px 6px 1px rgba(0 0 0 / 60%) !important;
+            box-shadow: 0px 0px 6px 1px rgba(0 0 0 / 60%) !important;
         }
-        .shadow-sm:hover {
+        .round-shadow:hover {
             -webkit-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
             -moz-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
             box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
         }
-        .openedWindows{
-            /* -webkit-transition: height 0.3s, width 0.3s;
-            -moz-transition: height 0.3s, width 0.3s;
-            -o-transition: height 0.3s, width 0.3s;
-            transition: height 0.2s ease-out, width 0.2s ease-out; */
+        .round-shadow-default {
             -webkit-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
             -moz-box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
             box-shadow: 0px 0px 15px 1px rgba(0 0 0 / 60%) !important;
         }
-        .noScroll {
+        
+        .round-menu-v1 {
+            /* Menu */
+            height: 6rem;
+            width: 90vw;
+            position: absolute; 
+            bottom: 1vw; 
+            left: 5vw;
+            overflow: hidden;
+            background-color: #ffffff4d;
+            transition: all 0.150s;
+            will-change: height, width, left, box-shadow;
+            font-size: 1.5vw;
+        }
+        .round-menu-v1:hover {
+            /* Menu animation*/
+            min-height: 7rem;
+            height: auto;
+            width: 96vw;
+            left: 2vw;
+        }
+        .round-inline {
+            display: inline;
+        }
+        @media only screen and (max-width: 600px) {
+        /* For desktop: */
+            .round-menu-v1 {
+                font-size: 4vw;
+                bottom: 1vw; 
+                overflow: auto;
+            }
+            .round-menu-v1:hover {
+                height: calc(100% - 2vw) !important;
+            }
+        }
+        .round-elem-vert {
+            flex-flow: column;
+        }
+
+        .round-no-scroll {
             overflow: hidden;
         }
+        
+        .round-cursor-pointer {
+            cursor: pointer;
+        }
+        /*End Components */
+
     </style>
 
 </head>
-<body class="noScroll">
+<body class="round-no-scroll" id="body">
 
     <header>
     </header>
    
-    <main id="">
-        <div id="mainDiv" class="container-fluid" onmousedown="resetWindows()" style="position: absolute; bottom: 0; top: 0; padding: 0;">
-
-    <!--  PC -->
-    <div id="deskDiv" class="row" style="opacity: 0; margin: 0; width: 100vw; height: 100vw;">
-        <div class="container" style="margin-left: 0; margin-top: 1%;">
-            <div class="row">
-                <div class="col-1  desktop-icons text-center">
-                    <img class=" float-left rborder-icons" id="icon-computer" style=" cursor: pointer;" src="./images/mycomputer.svg" onclick="desktopIconClick(this.id)" />
-                    <span class="desktop-icons-label">Computer</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1 desktop-icons text-center" >
-                    <img class="float-left rborder-icons" id="icon-projects" style="cursor:pointer;" src="./images/folder.svg" onclick="desktopIconClick(this.id)" />
-                    <span class="desktop-icons-label">Projects</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-linkedin" style=" cursor:pointer;" src="./images/linkedin.svg" onclick="desktopIconClick(this.id)" />
-                    <span class="desktop-icons-label">Linkedin</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-github" style=" cursor:pointer;" src="./images/github.svg" onclick="desktopIconClick(this.id)" />
-                    <span class="desktop-icons-label">Github</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-cv" style=" cursor:pointer;" src="./images/cv.svg" onclick="desktopIconClick(this.id)" />
-                    <span class="desktop-icons-label">CV</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-1 desktop-icons text-center">
-                    <img class="float-left rborder-icons" id="icon-certifications" style="cursor:pointer;" src="./images/diploma.svg" onclick="desktopIconClick(this.id)" />
-                    <span class="desktop-icons-label">Certifications</span>
-                </div>
-            </div>
-
-        </div>
+    <main>
 
         <!--  Div where windows are opened -->
-        <div id="openWindows" style="position: absolute; bottom: 35px; top: 0; left: 0; right: 0; opacity: 0; pointer-events: none;">
-            <div class="pdf  openedWindows" id="window1" value="pdf1"  style="display: flex; flex-flow: column; max-width:100vw !important; position:absolute; z-index:1; pointer-events: auto;left:20%; top:10%; background-color:white; width:60%; height:80%; border: 4px solid silver; border-radius: 8px; ">
-                <div data-window="window1" class=" windowBar" onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">
-                    <img class="mb-5" id="minimzeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="minimizeWindow(this)" src="./images/minimize.svg" />
-                    <img class="mb-5" id="maximizeWindowButton" data-window="1" style="padding-bottom: 2px !important;" onclick="maximizeWindow(this)" src="./images/maximize.svg" />
-                    <img class="mb-5" id="closeWindowButton" data-window="window1" style="padding-bottom: 2px !important;" onclick="closeWindow(this)" src="./images/close.svg" />
+        <div id="openWindows" style="position: absolute; bottom: 0; top: 0; left: 0; right: 0;">
+            <!-- <div class="round-container round-shadow pdf  openedWindows container" id="window1" value="pdf1" style="position: absolute; z-index:1;width: 60%; height: 80%; left: 312px; top: 15px; ">
+                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window1"  onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">
+                    <div class="round-col-2 round-right">
+                        <div class="round-row">
+                            <div class="round-col-3">
+                                <img class="round-cursor-pointer" id="minimzeWindowButton" data-window="window1" onclick="minimizeWindow(this)" src="./images/minimize.svg" />
+                            </div>
+                            <div class="round-col-3">
+                                <img class="round-cursor-pointer" style="padding: 1px;" id="maximizeWindowButton" data-window="1" onclick="maximizeWindow(this)" src="./images/maximize.png" />
+                            </div>
+                            <div class="round-col-3">
+                                <img class="round-cursor-pointer" style="padding: 1px;" id="closeWindowButton" data-window="1" onclick="closeWindow(this)" src="./images/close.png" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div  style="display: flex; flex-grow: 1; background-color:#C0C0C0;  cursor:default;">
-                    <object data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">
+                <div class="round-row round-elem-vert">
+                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">
                         alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
                     </object>
                 </div>
-            </div>
+            </div> -->
         </div>
-        <!--  PC menu that is opened from bottom left corner -->
-        <div id="windowsMenu" class="container-fluid shadow-lg rborder vblur" style="position:absolute; bottom:38px; left: 5px; height:0%; width:0%; background-color:#ffffff4d; will-change: transform, auto;">
-            <div class="row" style="position:absolute; bottom:22%; left: 42px;">
-                <img class="windowsMenuIcons device shadow-sm rborder" id="avatarButton" style="height:27%; width:27%; opacity:0; cursor:pointer;"  src="./images/avatar.jpeg" />
-            </div>
-            <div class="row" style="position:absolute; bottom:12%; left: 42px;">
-                <img class="windowsMenuIcons device shadow-sm rborder" id="settingButton" style="  height: 38px; opacity: 0; cursor: pointer;"  src="./images/settings.svg" />
-            </div>
-            <div class="row" style=" position: absolute; bottom: 2%;left: 42px;">
-                <img class="windowsMenuIcons device  shadow-sm rborder" id="powerButton" style="height:38px;  opacity:0; cursor:pointer;"  onclick="shutDown()" src="./images/power.svg" />
-            </div>
-        </div>
-        <!--  PC bottom bar -->
-        <div class="row shadow-lg vblur justify-content-center" style=" position: absolute;bottom: 0;width: -webkit-fill-available; width:-moz-available; background-color: #ffffff4d;">
-            <div class="col-2">
-                <img class=" device shadow-sm" id="d3" style="        height: 30px;
-        width: 30px;
-        margin: 0.2%;
-        margin-left: 50px;
-        border-radius: 14%;" onclick="showDesktopMenu()" src="./images/windows-logo.svg" />
-            </div>
-            <div class="col-8 justify-content-center">
-                <div class=" d-flex justify-content-center" id="openedWindows" style="height: 35px; color:red;">
-                    <img id="icon-cv" class="shadow-sm" style="height:26px; height: auto; cursor:pointer; width:90px; border-radius: 10px;" src="./images/cv.svg" onclick="desktopIconClick(this.id)" /><br /><br />
+        
+        <!--  Menu -->
+        <div class="round-menu-v1 round-shadow vblur round-container round-compact-phone">
+            <div class="round-row ">
+                <!-- 1 -->
+                <div class="round-col-phone-6 round-col-2">
+                    <div class="round-row">
+                        <div class="round-col-2">
+                            <img id="icon-projects" style="cursor:pointer; width: 63px" src="./images/folder.svg" onclick="desktopIconClick(this.id)" />
+                            <span>Projects</span>
+                        </div>
+                    </div>
                 </div>
+                <!-- 2 -->
+                <div class="round-col-phone-6 round-col-2">
+                    <div class="round-row">
+                        <div class="round-col-2">
+                            <img id="icon-linkedin" style="cursor:pointer; width: 63px" src="./images/linkedin.svg" onclick="desktopIconClick(this.id)" />
+                            <span>Linkedin</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="round-col-phone-6 round-col-2">
+                    <div class="round-row">
+                        <div class="round-col-2">
+                            <img id="icon-github" style="cursor:pointer; width: 63px" src="./images/github.svg" onclick="desktopIconClick(this.id)" />
+                            <span>Github</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="round-col-phone-6 round-col-2">
+                    <div class="round-row">
+                        <div class="round-col-2">
+                            <img id="icon-cv" style="cursor:pointer; width: 63px" src="./images/cv.svg" onclick="desktopIconClick(this.id)" />
+                            <span>CV</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="round-col-phone-1 round-col-2 ">
+                    <div class="round-row">
+                        <div class="round-col-2">
+                            <img id="icon-certifications" style="cursor:pointer; max-width: 63px" src="./images/diploma.svg" onclick="desktopIconClick(this.id)" />
+                            <span>Certifications</span>
+                        </div>
+                    </div>
+                </div>
+            
             </div>
-            <div class="col-2 justify-content-center">
-                <img id="dr" class="device shadow-sm" style=" height: 30px; margin: 0.2%;"  src="./images/volume.svg" />
-            </div>
-
         </div>
     </div>
 
-
-
-    <!--  PC loading animation div -->
-    <div id="loading" class="row" style="        opacity: 0;
-        position: absolute;
-        right: 30%;
-        left: 30%;
-        top: 48%;
-        bottom: 50%;
-        border: 1px solid blue;
-        border-radius: 5px;">
-        <div id="loading-bar" class="" style="        background-color: blue;
-        width: 0%;"></div>
-    </div>
-
-</div>
-<!--  PC right click opens a menu -->
-<div id="refreshMenu">
-
-</div>
-<!-- Home options: Phone / PC -->
-<div id="secondDiv" class="container" style="width: 100%; ">
-    <div class="row d-flex justify-content-center">
-        <div class="col-12 typewriter w-25 p-3">
-            <h1 style="text-align: center;    width: 337px; ">Choose a device!</h1>
-        </div>
-
-        <div class="col-12 col-sm-4 offset-sm-2 d-flex justify-content-center" style="margin: 5%">
-            <img id="d1" class="shadow-sm device rborder vblur"  onclick="insertDevice('secondDiv')" src="./images/iPhone.svg" />
-        </div>
-
-        <div class="col-12 col-sm-4 d-flex justify-content-center" style="margin: 5%">
-            <img id="d2" class="shadow-sm device rborder vblur"  onclick="insertDevice('d2')" src="./images/monitor.SVG" />
-        </div>
-    </div>
-</div>
     </main>
     <footer></footer>
 
-    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    
     <script>
- 	
-        //Variables for dragging window
+         //Variables for dragging window
         var div = null;
         var offset = [0, 0];
         var isDown = false;
         var mousePosition;
+        const root = document.documentElement;
+        document.addEventListener('mousemove', evt => {
+            let x = evt.clientX / innerWidth;
+            let y = evt.clientY / innerHeight;
+ 
+            root.style.setProperty('--mouse-x', x);
+            root.style.setProperty('--mouse-y', y);
+
+        });
+        document.addEventListener("DOMContentLoaded", function(event) { 
+
+            // document.getElementById('deskDiv').classList.add("fade-in");
+            // document.getElementById('deskDiv').classList.remove("fade-out-fast");
+            // document.getElementById('openWindows').classList.remove("fade-out-fast");
+            // document.getElementById('openWindows').classList.add("fade-in");
+            document.getElementById('body').classList.add("bg");
+        });
+   
+
+       
+       
 
         //Variables for windows
         //To see if windows are maximized or not
@@ -492,9 +471,9 @@
                 }
             });
         }
-        function closeWindow(id) {
-
-            var elem = document.getElementById('window' + id);
+        function closeWindow(element) {
+            let id = element.getAttribute('data-window');
+            let elem = document.getElementById('window' + id);
             elem.classList.add('fade-out-fast');
             setTimeout(function () {
                 elem.innerHTML = "";
@@ -622,7 +601,7 @@
                     break;
                 case "icon-cv":
 
-                    elem.insertAdjacentHTML('beforeend', '<div class="pdf" id="window' + windowsNumber + '" value="pdf' + windowsNumber + '" class="container-fluid" style="position:absolute; z-index:1; pointer-events: auto;left:20%; top:10%; background-color:white; width:60%; height:80%; border: 3px solid silver; "> <div id="' + windowsNumber + '" class="row windowBar" style="margin-right: 0% !important; margin-left: 0% !important;" onmousedown="dragWindow(this.id)" onmouseup="dragWindowMouseUp()"> <img id="' + windowsNumber + '" style="position:absolute; right:60px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="minimizeWindow(this.id)" src="/images/minimize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:32px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="maximizeWindow(this.id)" src="/images/maximize.svg"/> <img id="' + windowsNumber + '" style="position:absolute; right:5px; top:5px; height:20px; cursor:pointer; user-select: none;" onclick="closeWindow(this.id)" src="/images/close.svg"/> </div><div class="row" style="background-color:white; height:97%; cursor:default; margin-right: 0% !important; margin-left: 0% !important;"> <object data="/images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;"> alt : <a href="/images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> </object> </div></div>');
+                    elem.insertAdjacentHTML('beforeend', '<div class="round-container round-shadow pdf  openedWindows container" id="window'+id+'" value="pdf1" style="position: absolute; z-index:1;width: 60%; height: 80%; left: 10vw; top: 10vw; ">                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window'+id+'"  onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">                    <div class="round-col-phone-12 round-col-2 round-right">                        <div class="round-row">                            <!-- <div class="round-col-3">                                <img class="round-cursor-pointer" id="minimzeWindowButton" data-window="window'+id+'" onclick="minimizeWindow(this)" src="./images/minimize.svg" />                            </div> -->                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="maximizeWindowButton" data-window="'+id+'" onclick="maximizeWindow(this)" src="./images/maximize.png" />                            </div>                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="closeWindowButton" data-window="'+id+'" onclick="closeWindow(this)" src="./images/close.png" />                            </div>                        </div>                    </div>                </div>                <div class="round-row round-elem-vert">                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>                    </object>                </div>            </div>');
                     windowsNumber++;
                     break;
                 case "icon-certifications":
@@ -631,27 +610,6 @@
             }
         }
 
-      
-        //Remove hover shadow
-        function hoverRemove(element) {
-            element.classList.remove("shadow");
-        }
-
-        //For now is log off option
-        function shutDown() {
-            document.getElementById('deskDiv').classList.add("fade-out-fast");
-            document.getElementById('deskDiv').classList.remove("fade-in");
-            document.getElementById('openWindows').classList.add("fade-out-fast");
-            document.getElementById('openWindows').classList.remove("fade-in");
-
-            document.getElementById('mainDiv').classList.remove("bg");
-            setTimeout(function () {
-                document.getElementById('secondDiv').classList.add("fade-in-fast");
-                document.getElementById('secondDiv').classList.remove("fade-out");
-
-
-            }, 1000);
-        }
 
         //Open specific Phone or PC view based on site home options
         function insertDevice(name) {
@@ -661,30 +619,9 @@
 
 
             if (name == 'd2') {
-                setTimeout(function () {
-                    document.getElementById('loading').classList.add("fade-in");
-                    document.getElementById('loading').classList.remove("fade-out");
+                
 
-                }, 200);
-                setTimeout(function () {
-                    document.getElementById('loading-bar').classList.add("loading");
-                }, 1000);
-
-                setTimeout(function () {
-
-                    document.getElementById('loading').classList.add("fade-out");
-                    document.getElementById('loading').classList.remove("fade-in");
-
-                    document.getElementById('deskDiv').classList.add("fade-in");
-                    document.getElementById('deskDiv').classList.remove("fade-out-fast");
-
-                    document.getElementById('openWindows').classList.remove("fade-out-fast");
-                    document.getElementById('openWindows').classList.add("fade-in");
-
-
-                    document.getElementById('mainDiv').classList.add("bg");
-                }, 1500);
-                document.getElementById('loading-bar').classList.remove("loading");
+                
             }
         }
 
