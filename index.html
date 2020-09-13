@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/round.css">
 </head>
-<body class="round-no-scroll" id="body">
+<body class="round-no-scroll background-white" id="body">
     <header>
     </header>
-    <main>
-        <!--  Div where windows are opened -->
+    <main class="round-container">
         <div id="openWindows" style="position: absolute; bottom: 0; top: 0; left: 0; right: 0;">
+            <!--  Div where windows are opened -->
             <!-- <div class="round-container round-shadow pdf  openedWindows container" id="window1" value="pdf1" style="position: absolute; z-index:1;width: 60%; height: 80%; left: 312px; top: 15px; ">
                 <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window1"  onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">
                     <div class="round-col-2 round-right">
@@ -37,15 +37,25 @@
                 </div>
             </div> -->
         </div>
+       
+        <!--  <div class="round-container">
+            <div class="round-row">
+                <div class="round-col-6">
+                    <div class="round-theme round-card-v1 round-shadow" style="height: 100px; z-index: 1; width: -webkit-fill-available;;">
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
         
         <!--  Menu -->
-        <div class="round-menu-v1 round-shadow vblur round-container round-compact-phone">
-            <div class="round-row ">
+        <div class="round-theme round-menu-v1 round-shadow round-container round-compact-phone">
+            <div class="round-row">
                 <!-- 1 -->
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <button style="background: none; border: none;  outline:none;">
+                            <button class="round-button-v1">
                                 <img id="icon-github" style="cursor:pointer; width: 63px" src="./images/github.svg" onclick="desktopIconClick(this.id)" />
                             <span>Github</span>
                             </button>
@@ -56,7 +66,7 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <button style="background: none; border: none;  outline:none;">
+                            <button class="round-button-v1">
                             <img id="icon-linkedin" style="cursor:pointer; width: 63px" src="./images/linkedin.svg" onclick="desktopIconClick(this.id)" />
                             <span>Linkedin</span>
                             </button>
@@ -67,7 +77,7 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <button style="background: none; border: none;  outline:none;">
+                            <button class="round-button-v1" style="background: none; border: none;  outline:none;">
                                 <img id="icon-cv" style="cursor:pointer; width: 63px" src="./images/cv.svg" onclick="desktopIconClick(this.id)" />
                             <span>CV</span>
                             </button>
@@ -78,7 +88,7 @@
                 <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <button style="background: none; border: none;  outline:none;">
+                            <button class="round-button-v1">
                                 <img id="icon-projects" style="cursor:pointer; width: 63px" src="./images/folder.svg" onclick="desktopIconClick(this.id)" />
                                 <span>Projects</span>
                             </button>
@@ -86,17 +96,27 @@
                     </div>
                 </div>
                 <!-- 5 -->
-                <div class="round-col-phone-1 round-col-2 ">
+                <div class="round-col-phone-6 round-col-2">
                     <div class="round-row">
                         <div class="round-col-2">
-                            <button style="background: none; border: none;  outline:none;">
+                            <button class="round-button-v1">
                                 <img id="icon-certifications" style="cursor:pointer; max-width: 63px" src="./images/diploma.svg" onclick="desktopIconClick(this.id)" />
                             <span>Certifications</span>
                             </button>
                         </div>
                     </div>
                 </div>
-            
+                <!-- 6 -->
+                <div class="round-col-phone-6 round-col-2">
+                    <div class="round-row">
+                        <div class="round-col-2">
+                            <button id="round-theme-button" class="round-button-v1">
+                                <img  style="cursor:pointer; width: 63px" src="./images/adjust.svg" />
+                                <span>Dark mode</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

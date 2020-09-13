@@ -6,14 +6,7 @@ var isDown = false;
 var mousePosition;
 const root = document.documentElement;
 var elements = document.getElementsByClassName("classname");
-// document.addEventListener('mousemove', evt => {
-//     let x = evt.clientX / innerWidth;
-//     let y = evt.clientY / innerHeight;
 
-//     root.style.setProperty('--mouse-x', x);
-//     root.style.setProperty('--mouse-y', y);
-
-// });
 document.addEventListener("DOMContentLoaded", function (event) {
 
     // document.getElementById('deskDiv').classList.add("fade-in");
@@ -176,7 +169,7 @@ function desktopIconClick(id) {
             win.focus();
             break;
         case "icon-cv":
-            elem.insertAdjacentHTML('beforeend', '<div class="round-container round-shadow pdf  openedWindows container" id="window' + windowsNumber + '" value="pdf1" style="position: absolute; z-index:1; width: 64vw; height: 84%; left: 18vw; top: 0.7vw; ">                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window' + windowsNumber + '"   onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">                    <div class="round-col-12  round-right">                        <div class="round-row">                            <!-- <div class="round-col-3">                                <img class="round-cursor-pointer" id="minimzeWindowButton" data-window="window' + windowsNumber + '" onclick="minimizeWindow(this)" src="./images/minimize.svg" />                            </div> -->                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="maximizeWindowButton" data-window="' + windowsNumber + '" onclick="maximizeWindow(this)" src="./images/maximize.png" />                            </div>                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="closeWindowButton" data-window="' + windowsNumber + '" onclick="closeWindow(this)" src="./images/close.png" />                            </div>                        </div>                    </div>                </div>                <div class="round-row round-elem-vert">                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>                    </object>                </div>            </div>');
+            elem.insertAdjacentHTML('beforeend', '<div class="round-theme round-container  round-shadow pdf  openedWindows container" id="window' + windowsNumber + '" value="pdf1" style="position: absolute; z-index:1; width: 64vw; height: 84%; left: 18vw; top: 0.7vw; ">                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window' + windowsNumber + '"   onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">                    <div class="round-col-12  round-right">                        <div class="round-row">                            <!-- <div class="round-col-3">                                <img class="round-cursor-pointer" id="minimzeWindowButton" data-window="window' + windowsNumber + '" onclick="minimizeWindow(this)" src="./images/minimize.svg" />                            </div> -->                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="maximizeWindowButton" data-window="' + windowsNumber + '" onclick="maximizeWindow(this)" src="./images/maximize.png" />                            </div>                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="closeWindowButton" data-window="' + windowsNumber + '" onclick="closeWindow(this)" src="./images/close.png" />                            </div>                        </div>                    </div>                </div>                <div class="round-row round-elem-vert">                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>                    </object>                </div>            </div>');
             windowsNumber++;
             break;
         case "icon-certifications":
