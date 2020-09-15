@@ -170,7 +170,7 @@ img {
     -o-transition: all 0.150s;
     transition: all 0.150s;
     will-change: height, width, left, box-shadow;
-    font-size: 1.5vw;
+    font-size: 7rem;
 }
 .round-menu-v1:hover {
     /* Menu v1 animation*/
@@ -190,7 +190,7 @@ img {
     border: none;  
     outline:none;
     color: inherit;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 /*End Buttons*/
 
