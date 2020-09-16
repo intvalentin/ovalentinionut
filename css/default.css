@@ -9,15 +9,15 @@
 }
 
 #minimzeWindowButton {
-    height: 25px; 
+    width: 25px; 
 }
 
 #maximizeWindowButton {
-    height: 25px;
+    width: 25px;
 }
 
 #closeWindowButton {
-    height: 25px;
+    width: 25px;
 }
 .desktop-icons {
     display: grid;
