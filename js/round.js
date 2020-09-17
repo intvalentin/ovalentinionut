@@ -69,4 +69,6 @@ document.getElementById("round-theme-button").addEventListener("click", function
         //Default
         theme--;
     }
+    document.getElementById("round-menu-v1").style.transform = "translateX(102%)" ;
+    document.querySelectorAll("[class^=round-hide]").forEach(el => {el.style.opacity = 1;});
 });
