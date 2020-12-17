@@ -53,20 +53,18 @@ function handleTouchMove(evt) {
 };
 document.getElementById("round-theme-button").addEventListener("click", function (evnt) {
     if (theme == 1) {
-        document.querySelectorAll("[class^=round-theme]").forEach(el => {el.classList.remove("round-theme-white"); el.classList.add("round-theme-dark")});
-        
+        // document.querySelectorAll("[class^=round-theme]").forEach(el => {el.classList.remove("round-theme-white"); el.classList.add("round-theme-dark")});
         //Default
-        document.getElementById("body").classList.remove("background-white");
-        document.getElementById("body").classList.add("background-dark");
-        //Default
-
+        document.documentElement.style.setProperty('--themev1', 'rgba(0,0,0,0.72)');
+        document.documentElement.style.setProperty('--themev2', 'white');
+        document.documentElement.style.setProperty('--themev3', '1px solid #b6b6b67a');
         theme++;
     } else {
-        document.querySelectorAll("[class^=round-theme]").forEach(el => {el.classList.remove("round-theme-dark"); el.classList.add("round-theme-white")});
+        // document.querySelectorAll("[class^=round-theme]").forEach(el => {el.classList.remove("round-theme-dark"); el.classList.add("round-theme-white")});
         //Default
-        document.getElementById("body").classList.remove("background-dark");
-        document.getElementById("body").classList.add("background-white");
-        //Default
+        document.documentElement.style.setProperty('--themev1', 'rgba(255,255,255,0.72)');
+        document.documentElement.style.setProperty('--themev2', 'black');
+        document.documentElement.style.setProperty('--themev3', 'none');
         theme--;
     }
     document.getElementById("round-menu-v1").style.transform = "translateX(102%)" ;

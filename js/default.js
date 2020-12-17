@@ -6,7 +6,7 @@ var isDown = false;
 var mousePosition;
 const root = document.documentElement;
 var elements = document.getElementsByClassName("classname");
-
+var pageLocation = "";
 document.addEventListener("DOMContentLoaded", function (event) {
 
     // document.getElementById('deskDiv').classList.add("fade-in");
@@ -14,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // document.getElementById('openWindows').classList.remove("fade-out-fast");
     // document.getElementById('openWindows').classList.add("fade-in");
     document.getElementById('body').classList.add("bg");
+    root.style.setProperty('--themev1', '#ffffff7c !important');
+    root.style.setProperty('--themev2', 'black !important');
+    root.style.setProperty('--themev3', 'none');
 });
 
 
@@ -58,7 +61,7 @@ function maximizeWindow(element) {
     if (isMaximized["" + id + ""] == null) {
         isMaximized.push({ key: "" + id + "", value: "yes" });
         elem.style.width = "100%";
-        elem.style.height = "100%";
+        elem.style.height = "89.6%";
         elem.style.left = "0%";
         elem.style.top = "0%";
         isMaximized["" + id + ""] = "yes";
@@ -66,12 +69,12 @@ function maximizeWindow(element) {
     else if (isMaximized["" + id + ""] == "yes") {
         elem.style.width = "60%";
         elem.style.height = "80%";
-        elem.style.top = "20%";
+        elem.style.top = "7%";
         elem.style.left = "20%";
         isMaximized["" + id + ""] = "no";
     } else {
         elem.style.width = "100%";
-        elem.style.height = "100%";
+        elem.style.height = "89.6%";
         elem.style.left = "0%";
         elem.style.top = "0%";
         isMaximized["" + id + ""] = "yes";
@@ -121,34 +124,8 @@ document.addEventListener('mousemove', function (event) {
     }
 }, true);
 
-//Refresh option from right click menu
-function resetWindows() {
-    var elem = document.getElementById("refreshMenu");
-    if (elem.innerHTML != "") {
-        elem.innerHTML = "";
-    }
-
-}
-
-//Refresh desktop icons
-function refresh() {
-    var windowsMenuIcons = document.getElementsByClassName('desktop-icons');
-    var elem = document.getElementById("refreshMenu");
-    elem.innerHTML = "";
-    for (var i = 0; i < windowsMenuIcons.length; i++) {
-        windowsMenuIcons[i].classList.add("refresh");
 
 
-    }
-    setTimeout(function () {
-        for (var i = 0; i < windowsMenuIcons.length; i++) {
-
-
-            windowsMenuIcons[i].classList.remove("refresh");
-
-        }
-    }, 500);
-}
 
 //Open window or link based on desktop icons
 function desktopIconClick(id) {
@@ -158,7 +135,8 @@ function desktopIconClick(id) {
             elem.innerHTML += "<div class='container' style='position:absolute; left:20%; top:20%; background-color:white; width:45%; height:55%;'></div>";
             break;
         case "icon-projects":
-
+            elem.innerHTML = '<div class="round-hide round-container round-shadow-default round-m2"><div class="round-row"><div class="round-text-div round-theme round-shadow-default">2020</div></div><div class="round-row"><div class="round-col-4 round-col-phone-12"><div class="round-theme round-theme-white round-card-v1-m round-shadow"><div class="round-card-img-v1"> <img id="icon-github" src="./projects-imgs/2.png"/></div><div class="round-card-content-v1"><p class="round-row">PriceEPCG</p><p> - Application to see the history of prices on PcGarage and Emag (online stores). <br/></p><div class="round-row"> <button id="project-2" class="round-button-normal-xlarge" onclick="desktopIconClick(this.id)">Read more</button></div></div></div></div><div class="round-col-4 round-col-phone-12"><div class="round-theme round-theme-white round-card-v1-m round-shadow"><div class="round-card-img-v1"> <img id="icon-github" src="./projects-imgs/3.png"/></div><div class="round-card-content-v1"><p class="round-row">Project IGI</p><p> - Online Application Angular & C# / TypeScript / Sql server<br/></p><div class="round-row"> <button id="project-3" class="round-button-normal-xlarge" onclick="desktopIconClick(this.id)">Read more</button></div></div></div></div><div class="round-col-4 round-col-phone-12"><div class="round-theme round-theme-white round-card-v1-m round-shadow"><div class="round-card-img-v1"> <img id="icon-github" src="./projects-imgs/5.png"/></div><div class="round-card-content-v1"><p class="round-row">Project PRECIS (Meter management system for SMM warehouses)</p><p> - Online Application Angular & C# / TypeScript / Sql server<br/></p><div class="round-row"> <button class="round-button-normal-xlarge">Read more</button></div></div></div></div></div></div><div class="round-hide round-container round-shadow-default round-m2"><div class="round-row"><div class="round-text-div round-theme round-shadow-default">2019</div></div><div class="round-row"><div class="round-col-4 round-col-phone-12"><div class="round-theme round-theme-white round-card-v1-m round-shadow"><div class="round-card-img-v1"> <img id="icon-github" src="./projects-imgs/1.png"/></div><div class="round-card-content-v1"><p class="round-row">Intlearn</p><p> - E-learning system for learning algorithms and data structures, C#/ASP.NET Core MVC/MS SQL<br/> - WEB application with the objective to provide support for learning of algorithms and data structures.</p><div class="round-row"> <button id="project-1" class="round-button-normal-xlarge" onclick="desktopIconClick(this.id)">Read more</button></div></div></div></div><div class="round-col-4 round-col-phone-12"><div class="round-theme round-theme-white round-card-v1-m round-shadow"><div class="round-card-img-v1"> <img id="icon-github" src="./projects-imgs/4.png"/></div><div class="round-card-content-v1"><p class="round-row">Small projects</p><p> - View on Github<br/></p><div class="round-row"> <button id="project-small" class="round-button-normal-xlarge" onclick="desktopIconClick(this.id)">Go to Github</button></div></div></div></div></div></div></div>'
+            document.getElementById('backButton').style.display = 'none';
             break;
         case "icon-linkedin":
             var win = window.open('https://www.linkedin.com/in/ovalentinionut/', '_blank');
@@ -169,53 +147,42 @@ function desktopIconClick(id) {
             win.focus();
             break;
         case "icon-cv":
-            elem.insertAdjacentHTML('beforeend', '<div class="round-theme round-theme-white round-container  round-shadow pdf  openedWindows container" id="window' + windowsNumber + '" value="pdf1" style="position: absolute; z-index:1; width: 64vw; height: 84%; left: 18vw; top: 0.7vw; ">                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window' + windowsNumber + '"   onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">                    <div class="round-col-12  round-right">                        <div class="round-row">                            <!-- <div class="round-col-3">                                <img class="round-cursor-pointer" id="minimzeWindowButton" data-window="window' + windowsNumber + '" onclick="minimizeWindow(this)" src="./images/minimize.svg" />                            </div> -->                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="maximizeWindowButton" data-window="' + windowsNumber + '" onclick="maximizeWindow(this)" src="./images/maximize.png" />                            </div>                            <div class="round-col-3">                                <img class="round-cursor-pointer" style="padding: 1px;" id="closeWindowButton" data-window="' + windowsNumber + '" onclick="closeWindow(this)" src="./images/close.png" />                            </div>                        </div>                    </div>                </div>                <div class="round-row round-elem-vert">                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>                    </object>                </div>            </div>');
+            elem.innerHTML = '<div class="round-container" style="height: 100%;"><div class="round-row round-fill"> <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%; border-radius: 13px; flex-grow: 1;"> alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a> </object></div></div><div style="height: 100px;"></div>';
             windowsNumber++;
             break;
         case "icon-certifications":
             break;
+        case "project-1":
+            elem.innerHTML = '<div class="container"><div class="round-row"><div class="round-col-3 round-col-phone-12 round-theme round-shadow round-m3" style="font-size: xx-large;"> Intlearn</div></div><div class="round-row "><div class="round-col-5 round-col-phone-12 round-m5" style="font-size: medium;"><div class="round-theme round-col-12 round-shadow round-text-div round-m1"> WEB application with the objective to provide support for learning of algorithms and data structures</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Developed using Model View Controller(MVC) architecture</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Designed use-case diagram</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Designed database(MS SQL): User requirements, Conceptual design, Logical design, Physical design, Implementation</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Worked with database using Entity Framework Core</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Used asynchronous programming using async / await to increase performance and responsiveness</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Used Razor for embedding server-based code into webpages</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Used CSS Framework for developing responsive and mobile-first interface</div></div><div class="round-col-5 round-col-phone-12 round-m5"> <video class="round-shadow-default" style="width: 100%; border-radius: 24px; outline: none;" controls> <source src="./projects-imgs/eLearning.mp4" type="video/mp4"> </video></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_1.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_2.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" style="width: 300px;" src="./projects-imgs/1_3.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_4.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_5.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_6.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_7.PNG" /></div><div class="round-col-5 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/1_8.PNG" /></div></div></div><div style="height: 100px;"></div>';
+            pageLocation = 'icon-projects';
+            document.getElementById('backButton').style.display = 'initial';
+            break;
+        case "project-2":
+            elem.innerHTML = '<div class="container"><div class="round-row"><div class="round-col-3 round-col-phone-12 round-theme round-shadow round-m3" style="font-size: xx-large;"> PriceEPCG</div></div><div class="round-row "><div class="round-col-4 round-col-phone-12 round-m5" style="font-size: medium;"><div class="round-theme round-col-12 round-shadow round-text-div round-m1"> Application to see the history of prices on PcGarage and Emag (online stores).</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Wrote C# programs to read and store prices from PcGarage and Emag.</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Used Chart.js for displaying data.</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> You can search products by using manufacturer code or using product link. More info in \'Help\' section in app.</div><div class="round-col-12 round-m1"><div class="round-row"><div class="round-col-5"> <button id="viewPriceEPCG" class="round-button-normal-medium round-m2" onclick="desktopIconClick(this.id)">View application</button></div><div class="round-col-5"> <button id="viewPriceEPCGGithub" class="round-button-normal-medium round-m2" onclick="desktopIconClick(this.id)">View on Github</button></div></div></div></div><div class="round-col-9 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/2.PNG" /></div><div class="round-col-9 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/2_1.PNG" /></div></div></div><div style="height: 100px;"></div>';
+            pageLocation = 'icon-projects';
+            document.getElementById('backButton').style.display = 'initial';
+            break;
+        case "project-3":
+            elem.innerHTML = '<div class="container"><div class="round-row"><div class="round-col-4 round-col-phone-12 round-theme round-shadow round-m3" style="font-size: xx-large;"> Project IGI (Online Application Portal)</div></div><div class="round-row "><div class="round-col-5 round-col-phone-12 round-m5" style="font-size: medium;"><div class="round-theme round-col-12 round-shadow round-text-div round-m1"> Project developed working at TECHNOHUB</div><div class="round-theme round-col-12 round-shadow round-text-div round-m1"> Worked with the team on frontend & backend. (C# / TypeScript)</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Worked on implementing the business design of the application.</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Developed and modified T-SQL transactions.</div><div class="round-col-12 round-theme round-shadow round-text-div round-m1"> Implemented responsive UI design. (Bootstrap grid & Material Angular)</div><div class="round-col-12 round-m1"><div class="round-row"><div class="round-col-5"> <button id="viewIGIProject" class="round-button-normal-medium round-m2" onclick="desktopIconClick(this.id)">View application</button></div></div></div></div><div class="round-col-8 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/3_1.PNG" /></div><div class="round-col-8 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/3_2.PNG" /></div><div class="round-col-8 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/3_3.PNG" /></div><div class="round-col-8 round-col-phone-12 round-m5"> <img class="round-shadow-default" src="./projects-imgs/3_4.PNG" /></div><div class="round-col-8 round-col-phone-12 round-m5"> <img class="round-shadow-default" style="width: 300px;" src="./projects-imgs/3_5.PNG" /></div></div></div><div style="height: 100px;"></div>';
+            pageLocation = 'icon-projects';
+            document.getElementById('backButton').style.display = 'initial';
+            break;
+        case "project-small":
+            var win = window.open('https://github.com/intvalentin', '_blank');
+            break;
+        case "viewPriceEPCG":
+            var win = window.open('https://intvalentin.github.io/PriceEPCG/', '_blank');
+            break;
+        case "viewPriceEPCGGithub":
+            var win = window.open('https://github.com/intvalentin/PriceEPCG', '_blank');
+            break;
+        case "viewIGIProject":
+            var win = window.open('https://portaligi.mai.gov.ro/portaligi/', '_blank');
+            break;
 
     }
 }
-
-
-//Open specific Phone or PC view based on site home options
-function insertDevice(name) {
-
-    document.getElementById('secondDiv').classList.add("fade-out");
-
-
-
-    if (name == 'd2') {
-
-
-
-    }
+function goBack() {
+    desktopIconClick(pageLocation);
 }
 
-//Show 'windows' left corner menu
-function showDesktopMenu() {
-    var windowsMenuIcons = document.getElementsByClassName('windowsMenuIcons');
-    if (document.getElementById('windowsMenu').classList.contains('fade-in-large')) {
-
-        document.getElementById('windowsMenu').classList.add("fade-out-large");
-
-        for (var i = 0; i < windowsMenuIcons.length; i++) {
-            windowsMenuIcons[i].classList.add("fade-out-fast");
-            windowsMenuIcons[i].classList.remove("fade-in-fast");
-        }
-        document.getElementById('windowsMenu').classList.remove("fade-in-large");
-
-    } else {
-
-        document.getElementById('windowsMenu').classList.add("fade-in-large");
-        //setTimeout(function () {
-        for (var i = 0; i < windowsMenuIcons.length; i++) {
-            windowsMenuIcons[i].classList.add("fade-in-fast");
-            windowsMenuIcons[i].classList.remove("fade-out-fast");
-        }
-        //}, 200);
-        document.getElementById('windowsMenu').classList.remove("fade-out-large");
-    }
-
-}

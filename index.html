@@ -7,145 +7,68 @@
     <title>ovalentinionut</title>
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/round.css">
+    <link rel="icon" href="./images/icon.jpg">
 </head>
-<body class="background-white" id="body">
+<body class="background-dark" id="body">
+    <div id="round-menu-v1" class="round-theme round-theme-white round-menu-v1 round-shadow round-container round-compact-phone round-compact-pc">
+        <div class="round-row round-fill">
+            <!-- 1 -->
+            <div class="round-col-phone-6 round-col-2">
+                    <a href="#" id="icon-github"  onclick="desktopIconClick(this.id)">
+                        <img style="width: 50px" src="./images/github.svg"/>
+                    </a>
+                    <span>Github</span>
+            </div>
+            <!-- 2 -->
+            <div class="round-col-phone-6 round-col-2">
+                    <a href="#">
+                        <img id="icon-linkedin" style="width: 50px" src="./images/linkedin.svg" onclick="desktopIconClick(this.id)"/>
+                    </a>
+                    <span>Linkedin</span>
+            </div>
+            <!-- 3 -->
+            <div class="round-col-phone-6 round-col-2">
+                    <a href="#"  id="icon-cv" onclick="desktopIconClick(this.id)">
+                        <img  style="width: 50px" src="./images/cv.svg"/>
+                    </a>
+                    <span>CV</span>
+            </div>
+            <!-- 4 -->
+            <div class="round-col-phone-6 round-col-2">
+                    <a href="#" >
+                        <img id="icon-projects" style="width: 50px" src="./images/folder.svg" onclick="desktopIconClick(this.id)"/>
+                    </a>
+                    <span>Projects</span>
+            </div>
+            <!-- 5 -->
+            <div class="round-col-phone-6 round-col-2">
+                    <a href="#" onclick="desktopIconClick(this.id)">
+                        <img id="icon-certifications" style="width: 50px" src="./images/diploma.svg"/>
+                    </a>
+                    <span>Certifications</span>
+            </div>
+            <!-- 6 -->
+            <div class="round-col-phone-6 round-col-2">
+                    <a href="#" id="round-theme-button">
+                        <img style="width: 50px" src="./images/adjust.svg"/>
+                    </a>
+                    <span>Dark mode</span>
+            </div>
+    </div>
     <header>
     </header>
     <main class="round-container">
         <!--  Menu -->
-        <div id="round-menu-v1" class="round-theme round-theme-white round-menu-v1 round-shadow round-container round-compact-phone round-compact-pc">
-            <div class="round-row">
-                <!-- 1 -->
-                <div class="round-col-phone-6 round-col-2">
-                        <a href="#" id="icon-github"  onclick="desktopIconClick(this.id)">
-                            <img style="width: 63px" src="./images/github.svg"/>
-                        </a>
-                        <span>Github</span>
-                </div>
-                <!-- 2 -->
-                <div class="round-col-phone-6 round-col-2">
-                        <a href="#" onclick="desktopIconClick(this.id)">
-                            <img id="icon-linkedin" style="width: 63px" src="./images/linkedin.svg" />
-                        </a>
-                        <span>Linkedin</span>
-                </div>
-                <!-- 3 -->
-                <div class="round-col-phone-6 round-col-2">
-                        <a href="#"  id="icon-cv" onclick="desktopIconClick(this.id)">
-                            <img  style="width: 63px" src="./images/cv.svg"/>
-                        </a>
-                        <span>CV</span>
-                </div>
-                <!-- 4 -->
-                <div class="round-col-phone-6 round-col-2">
-                        <a href="#" >
-                            <img id="icon-projects" style="width: 63px" src="./images/folder.svg" onclick="desktopIconClick(this.id)"/>
-                        </a>
-                        <span>Projects</span>
-                </div>
-                <!-- 5 -->
-                <div class="round-col-phone-6 round-col-2">
-                        <a href="#" onclick="desktopIconClick(this.id)">
-                            <img id="icon-certifications" style="width: 63px" src="./images/diploma.svg"/>
-                        </a>
-                        <span>Certifications</span>
-                </div>
-                <!-- 6 -->
-                <div class="round-col-phone-6 round-col-2">
-                        <a href="#" id="round-theme-button">
-                            <img style="width: 63px" src="./images/adjust.svg"/>
-                        </a>
-                        <span>Dark mode</span>
-
-                </div>
-            </div>
+        
         </div>
-      
-        <div id="openWindows" class="round-hide">
-            <!--  Div where windows are opened -->
-            <div class="round-theme round-theme-white round-container round-shadow pdf  openedWindows container" id="window1" value="pdf1" style="position: absolute; z-index:2;width: 60%; height: 80%; left: 312px; top: 15px; ">
-                <div class="round-row  windowBar" style="cursor: grab; max-height: 30px;" data-window="window1"  onmousedown="dragWindow(this)" onmouseup="dragWindowMouseUp()">
-                            <div class="round-col-3">
-                                <img class="round-cursor-pointer" id="maximizeWindowButton" data-window="1" onclick="maximizeWindow(this)" src="./images/maximize.png" />
-                            </div>
-                            <div class="round-col-3">
-                                <img class="round-cursor-pointer" id="closeWindowButton" data-window="1" onclick="closeWindow(this)" src="./images/close.png" />
-                            </div>
-                </div>
-                <div class="round-row round-fill">
-                    <object class="round-col-12" data="./images/Olteanu_Ionut Valentin_Resume.pdf" type="application/pdf" style="width:100%;  border-radius: 13px; flex-grow: 1;">
-                        alt : <a href="./images/Olteanu_Ionut Valentin_Resume.pdf">test.pdf</a>
-                    </object>
-                </div>
-            </div>
-        </div>
+        <button id="backButton" class="round-button-normal-xlarge round-right round-m2 round-hide"  style="display: none; position: fixed; right: 20px; top: 15px;" onclick="goBack()">Back</button>
        
-        <div class="round-hide  round-container">
-            <div class="round-row">
-                <!-- Card 1 V1 -->
-                <div class="round-col-phone-12 round-col-6 ">
-                    <div class="round-theme round-theme-white round-card-v1-s round-shadow">
-                        <div class="round-card-img-v1">
-                            <img id="icon-github"  src="./projects-imgs/1.png"/>
-                        </div>
-                        <div class="round-card-content-v1">
-                            <div class="round-row">
-                                <button class="round-button-normal-medium round-right">Close</button>
-                            </div>
-                            <p>Title</p>
-                            <p class="round-text-contain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in libero efficitur, 
-                                mollis turpis vitae, mattis ligula. Aenean sed fringilla erat, et porta mi. Nunc tempus elit eget urna bibendum pulvinar. 
-                                Vivamus quis pellentesque ex, vitae molestie nibh. Pellentesque dignissim nulla et mi fermentum dignissim. Sed faucibus odio nisi, 
-                                in blandit urna tempus nec. Morbi ut lorem quis arcu tincidunt consectetur vitae in orci. Nullam eleifend ac erat sed congue.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="round-theme round-theme-white round-card-v1-s round-shadow">
-                        <div class="round-card-img-v1">
-                            <img id="icon-github"  src="./projects-imgs/1.png"/>
-                        </div>
-                        <div class="round-card-content-v1">
-                            <div class="round-row">
-                                <button class="round-button-normal-medium round-right">Close</button>
-                            </div>
-                            <p>Title</p>
-                            <p class="round-text-contain">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in libero efficitur, 
-                                mollis turpis vitae, mattis ligula. Aenean sed fringilla erat, et porta mi. Nunc tempus elit eget urna bibendum pulvinar. 
-                                Vivamus quis pellentesque ex, vitae molestie nibh. Pellentesque dignissim nulla et mi fermentum dignissim. Sed faucibus odio nisi, 
-                                in blandit urna tempus nec. Morbi ut lorem quis arcu tincidunt consectetur vitae in orci. Nullam eleifend ac erat sed congue.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 2 V2 -->
-                <div class="round-col-phone-12 round-col-3">
-                    <div class="round-theme round-theme-white round-card-v2-m round-shadow">
-                        <div class="round-card-img-v2">
-                            <img id="icon-github"  src="./projects-imgs/1.png"/>
-                        </div>
-                        <div class="round-card-content-v2">
-                            
-                                        <p>Title</p>
-                                        <p  class="round-text-contain">text text  text text  text text  text text  text text  text text  text text  text text  text text  text text  text text 
-                                            text text  text text  text text  text text  text text  text text  text text  text text  text text  text text  text texta
-                                        </p>
-                                        <p  class="round-text-contain">taaaext text  text text  text text  text text  text text  text text  text text  text text  text text  text text  text text 
-                                            text text  texttaaaext text  text text  text text  text text  text text  text text  text text  text text  text text  text text  text text 
-                                            text text  text text  text text  text text  text text  text text  text text  text text  text text  text text  text texta
-                                        </p>
-                                        <div class="round-row">
-                                            <button class="round-button-normal-medium">Close</button>
-                                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="openWindows" class="round-hide open-windows" >
             
         </div>
-        <div class="round-row">
-            <button class="round-button-normal-medium">Close</button>
-        </div>
-       
+
+            
+
     </div>
 
     </main>
