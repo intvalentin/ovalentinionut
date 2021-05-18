@@ -1,0 +1,56 @@
+{
+    "Home": {
+    "name": "Home",
+    "img": "assets/images/home.svg",
+     "routerLink": "''",     	
+     "functionName": ""
+    },
+    "Item2": {
+        "name": "Github",
+        "img": "assets/images/github.svg",
+        "routerLink": "", 
+        "functionName": "openGithub"
+    },
+    "Item3": {
+        "name": "Linkedin",
+        "img": "assets/images/linkedin.svg",
+        "routerLink": "",
+        "functionName": "opneLinkedin"
+    },
+    "Item4": {
+        "name": "CV",
+        "img": "assets/images/linkedin.svg",
+        "routerLink": "/cv",
+        "functionName": ""
+    },
+    "Item5": {
+        "name": "Projects",
+        "img": "assets/images/folder.svg",
+        "routerLink": "/projects",
+        "functionName": ""
+    },
+    "Item6": {
+        "name": "Learn",
+        "img": "assets/images/blog.svg",
+        "routerLink": "/learn",
+        "functionName": ""
+    },
+    "Theme": {
+        "name": "Theme",
+        "img": "assets/images/adjust.svg",
+        "routerLink": "",
+        "functionName": ""
+    },
+    "MenuItems": {
+        "name": "More..",
+        "img": "assets/images/menu-items.svg",
+        "routerLink": "",
+        "functionName": ""
+    }
+}
+
+
+
+
+
+
