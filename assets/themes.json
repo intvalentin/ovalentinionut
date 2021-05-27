@@ -1,0 +1,57 @@
+{
+    "white-round":{
+        "backgroundColor": "white",
+        "backgroundColorMenu": "rgba(255,255,255,0.72)",
+        "textColor": "black",
+        "border": "none",
+        "backgroundColorBody": "rgb(226, 226, 228)",
+        "filterInvert": "none",
+        "animate": "all 0.250s ease-in-out",
+        "input-text-size": "22px",
+        "border-radius": "22px"
+    },
+    "white-normal":{
+        "backgroundColor": "white",
+        "backgroundColorMenu": "rgba(255,255,255,0.72)",
+        "textColor": "black",
+        "border": "none",
+        "backgroundColorBody": "rgb(226, 226, 228)",
+        "filterInvert": "none",
+        "animate": "all 0.250s ease-in-out",
+        "input-text-size": "22px",
+        "border-radius": "0px"
+    },
+    "dark-round":{
+        "backgroundColor": "rgb(39 39 39)",
+        "backgroundColorMenu": "rgba(0,0,0,0.72)",
+        "textColor": "white",
+        "border": "1px solid #b6b6b67a",
+        "backgroundColorBody": "rgb(68, 68, 68)",
+        "filterInvert": "invert()",
+        "animate": "all 0.250s ease-in-out",
+        "input-text-size": "22px",
+        "border-radius": "22px"
+    },
+    "dark-normal":{
+        "backgroundColor": "rgb(39 39 39)",
+        "backgroundColorMenu": "rgba(0,0,0,0.72)",
+        "textColor": "white",
+        "border": "1px solid #b6b6b67a",
+        "backgroundColorBody": "rgb(68, 68, 68)",
+        "filterInvert": "invert()",
+        "animate": "all 0.250s ease-in-out",
+        "input-text-size": "22px",
+        "border-radius": "0px"
+    },
+    "blue-round":{
+        "backgroundColor": "#003e51",
+        "backgroundColorMenu": "#003e51",
+        "textColor": "white",
+        "border": "1px solid #b6b6b67a",
+        "backgroundColorBody": "rgb(0, 32, 60)",
+        "filterInvert": "invert()",
+        "animate": "all 0.250s ease-in-out",
+        "input-text-size": "22px",
+        "border-radius": "22px"
+    }
+}
