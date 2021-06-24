@@ -7,7 +7,7 @@
         "backgroundColorBody": "rgb(226, 226, 228)",
         "filterInvert": "none",
         "animate": "all 0.250s ease-in-out",
-        "input-text-size": "22px",
+        "input-text-size": "initial",
         "border-radius": "22px"
     },
     "white-normal":{
@@ -18,7 +18,7 @@
         "backgroundColorBody": "rgb(226, 226, 228)",
         "filterInvert": "none",
         "animate": "all 0.250s ease-in-out",
-        "input-text-size": "22px",
+        "input-text-size": "initial",
         "border-radius": "0px"
     },
     "dark-round":{
@@ -29,7 +29,7 @@
         "backgroundColorBody": "rgb(68, 68, 68)",
         "filterInvert": "invert()",
         "animate": "all 0.250s ease-in-out",
-        "input-text-size": "22px",
+        "input-text-size": "initial",
         "border-radius": "22px"
     },
     "dark-normal":{
@@ -40,7 +40,7 @@
         "backgroundColorBody": "rgb(68, 68, 68)",
         "filterInvert": "invert()",
         "animate": "all 0.250s ease-in-out",
-        "input-text-size": "22px",
+        "input-text-size": "initial",
         "border-radius": "0px"
     },
     "blue-round":{
@@ -51,7 +51,7 @@
         "backgroundColorBody": "rgb(0, 32, 60)",
         "filterInvert": "invert()",
         "animate": "all 0.250s ease-in-out",
-        "input-text-size": "22px",
+        "input-text-size": "initial",
         "border-radius": "22px"
     }
 }
